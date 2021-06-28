@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bc7ef9eb161bf4f8bc265a237fe22f, type: 3}
+  m_Name: Prefabs config
+  m_EditorClassIdentifier: 
+  ruins: {fileID: 6757655431281430401, guid: 036bdbbb8147d3748b8a20dcfdd7de9c, type: 3}
+  boom: {fileID: 9112319451488956408, guid: bab1a909db7b78c4aa59606c181a01b1, type: 3}
