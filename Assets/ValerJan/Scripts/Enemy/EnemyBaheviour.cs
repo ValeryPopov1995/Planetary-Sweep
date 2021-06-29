@@ -41,7 +41,7 @@ public abstract class EnemyBaheviour : MonoBehaviour
         else FindBuilding();
 
         // vertical speed - gravity
-        rb.velocity -= Body.up * Settings.Singleton.GamePlaySets.Gravity;
+        rb.velocity -= Body.up * Settings.Singleton.GameBalance.Gravity;
         rb.velocity *= Time.fixedDeltaTime;
     }
 

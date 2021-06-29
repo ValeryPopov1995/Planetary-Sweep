@@ -32,7 +32,7 @@ public class EnemyWaveManager : MonoBehaviour
 		{
 			Debug.Log("wave # " + index + " begining");
 
-			yield return new WaitForSeconds(Settings.Singleton.GamePlaySets.EnemyWaveCullback);
+			yield return new WaitForSeconds(Settings.Singleton.GameBalance.EnemyWaveCullback);
 			EventHolder.Singlton.Massage?.Invoke("Наступает новая волна!");
 			
 			// список всех создаваемых префабов за данную волну, все в одной куче
@@ -56,7 +56,7 @@ public class EnemyWaveManager : MonoBehaviour
 					Debug.Log(spownList[0].name + " spowned");
 					spownList.RemoveAt(0);
 				}
-				yield return new WaitForSeconds(Settings.Singleton.GamePlaySets.SpaceshipSpownTime);
+				yield return new WaitForSeconds(Settings.Singleton.GameBalance.SpaceshipSpownTime);
 			}
 			if (limit == 0) Debug.LogError("свободных точек десантирования кораблей не нашлось");
 		}
@@ -78,7 +78,7 @@ public class EnemyWaveManager : MonoBehaviour
 
 		IEnumerator setDeployPointFree(Transform deployPoint)
 		{
-			yield return new WaitForSeconds(Settings.Singleton.GamePlaySets.TimerDestroySpaceships);
+			yield return new WaitForSeconds(Settings.Singleton.GameBalance.TimerDestroySpaceships);
 			spownPointsIsFree[deployPoint] = true;
 		}
 	}

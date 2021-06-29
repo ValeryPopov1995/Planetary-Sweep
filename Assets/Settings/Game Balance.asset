@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 281c8832bf41a3b458e6d8a3add1d353, type: 3}
-  m_Name: Game Saved config
+  m_Name: Game Balance
   m_EditorClassIdentifier: 
   Gravity: 1000
   EnemyWaveCullback: 5
@@ -18,7 +18,5 @@ MonoBehaviour:
   TimerDestroySpaceships: 5
   AutoFireAngle: 9
   AutoFireRange: 15
-  Sensetivity: 20
-  TargetFPS: 60
   AutoriflePrefab: {fileID: 3625737723354933935, guid: 3d5db4b5d3d9858468867eefc767f1de,
     type: 3}

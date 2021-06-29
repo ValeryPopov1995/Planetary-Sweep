@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Settings : MonoBehaviour
 {
-    public GameConfig GamePlaySets;
-    public PurchasesConfig Purchases;
+    public GameBalanceConfig GameBalance;
+    public PurchasesConfig Purchases, DefaultPurchases;
+    public GameSettingsConfig GameSettings;
     public static Settings Singleton;
 
     void Awake()
@@ -13,6 +14,6 @@ public class Settings : MonoBehaviour
         if (Singleton == null) Singleton = this;
         else Destroy(this);
 
-        Application.targetFrameRate = GamePlaySets.TargetFPS;
+        Application.targetFrameRate = GameSettings.DropdownFPS;
     }
 }

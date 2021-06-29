@@ -19,7 +19,16 @@ public struct Purchase
     [SerializeField] int maxLevel, currentLevel, cost, costProgress;
     [SerializeField] float firstValue, addValue;
 
-    public int CurrentLevel { get { return currentLevel;}}
+    public int CurrentLevel
+    {
+        get { return currentLevel;}
+        set
+        {
+            if (value > maxLevel) currentLevel = maxLevel;
+            else if (value < 0) currentLevel = 0;
+            else currentLevel = value;
+        }
+    }
     public int CurrentCost { get { return cost + costProgress * currentLevel;}}
     public float CurrentValue { get { return firstValue + addValue * currentLevel;}}
 }

@@ -23,8 +23,8 @@ public class PlayerMovenment : MonoBehaviour
         cam = Camera.main.transform;
 
         var sets = Settings.Singleton;
-        sensetivity = sets.GamePlaySets.Sensetivity;
-        gravity = sets.GamePlaySets.Gravity;
+        sensetivity = sets.GameSettings.Sensetivity;
+        gravity = sets.GameBalance.Gravity;
         speed = sets.Purchases.PlayerSpeed.CurrentValue;
         jetCD = sets.Purchases.JetpackCulldown.CurrentValue;
         jetForce = sets.Purchases.JetpackForce.CurrentValue;

@@ -7,8 +7,6 @@ public class InputSystem : MonoBehaviour
 {
     public Joystick MoveStick;
     public ShooterEventTrigger EyeTrigger;
-    [Space]
-    public List<Canvas> CanvasesToHide;
 
     public static InputSystem Singleton;
 
@@ -27,9 +25,4 @@ public class InputSystem : MonoBehaviour
     public void Button_Granate() { EventHolder.Singlton.UseGranate?.Invoke(); }
     public void Button_Shotgun() { EventHolder.Singlton.UseShotgun?.Invoke(); }
     public void Button_JetPack() { EventHolder.Singlton.UseJetPack?.Invoke(); }
-
-    public void Button_HideCanvases()
-    {
-        foreach(var e in CanvasesToHide) e.gameObject.SetActive(false);
-    }
 }

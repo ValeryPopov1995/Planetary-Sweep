@@ -18,18 +18,18 @@ public class AutoFire : MonoBehaviour
 
     void FixedUpdate()
     {
-        var list = Physics.OverlapSphere(cam.position, sets.GamePlaySets.AutoFireRange, LayerMask.GetMask("Enemy"));
+        var list = Physics.OverlapSphere(cam.position, sets.GameBalance.AutoFireRange, LayerMask.GetMask("Enemy"));
 
         foreach(var e in list)
         {
             float aimAngle = Vector3.Angle(cam.forward, e.transform.position - cam.position); // cam.forward
-            if (aimAngle <= sets.GamePlaySets.AutoFireAngle && Time.time > sets.Purchases.AutorifleCulldown.CurrentValue + lastTimeFire) fire();
+            if (aimAngle <= sets.GameBalance.AutoFireAngle && Time.time > sets.Purchases.AutorifleCulldown.CurrentValue + lastTimeFire) fire();
         }
     }
 
     void fire()
     {
         lastTimeFire = Time.time;
-        ObjectPool.Singleton.InstantiateFromPool(sets.GamePlaySets.AutoriflePrefab, SpownPoint.position, SpownPoint.rotation);
+        ObjectPool.Singleton.InstantiateFromPool(sets.GameBalance.AutoriflePrefab, SpownPoint.position, SpownPoint.rotation);
     }
 }
