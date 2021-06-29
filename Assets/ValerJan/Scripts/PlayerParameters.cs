@@ -8,13 +8,13 @@ public class PlayerParameters : MonoBehaviour
 
     void Start()
     {
-        health = Settings.Singleton.PlayerSets.Health;
+        health = Settings.Singleton.Purchases.PlayerHealth.CurrentValue;
         EventHolder.Singlton.PlayerChangeHealth += takeDamage;
 
         transform.position = FindObjectOfType<Planet>().StartPlayerPosition.position;
     }
 
-    void takeDamage(System.Object damage)
+    void takeDamage(float damage)
     {
         health -= (float)damage;
         if (health <= 0) die();
@@ -22,6 +22,6 @@ public class PlayerParameters : MonoBehaviour
 
     void die()
     {
-        EventHolder.Singlton.DefeatGame?.Invoke(null);
+        EventHolder.Singlton.DefeatGame?.Invoke();
     }
 }

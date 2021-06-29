@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f26acbec57ce943ae251c47199a9dc, type: 3}
+  m_Name: Purchases Saved config
+  m_EditorClassIdentifier: 
+  ShotgunDamage:
+    maxLevel: 10
+    currentLevel: 0
+    cost: 100
+    costProgress: 60
+    firstValue: 10
+    addValue: 1
+  ShotgunCulldown:
+    maxLevel: 10
+    currentLevel: 1
+    cost: 100
+    costProgress: 70
+    firstValue: 5
+    addValue: -0.5
+  ShotgunMaxCount:
+    maxLevel: 10
+    currentLevel: 1
+    cost: 100
+    costProgress: 70
+    firstValue: 3
+    addValue: 1
+  RocketDamage:
+    maxLevel: 10
+    currentLevel: 0
+    cost: 100
+    costProgress: 90
+    firstValue: 20
+    addValue: 2
+  RocketSplashRadius:
+    maxLevel: 10
+    currentLevel: 1
+    cost: 100
+    costProgress: 90
+    firstValue: 2
+    addValue: 0.2
+  RocketMaxCount:
+    maxLevel: 10
+    currentLevel: 1
+    cost: 100
+    costProgress: 80
+    firstValue: 3
+    addValue: 1
+  AutorifleDamage:
+    maxLevel: 10
+    currentLevel: 1
+    cost: 150
+    costProgress: 100
+    firstValue: 10
+    addValue: 1
+  AutorifleCulldown:
+    maxLevel: 10
+    currentLevel: 1
+    cost: 100
+    costProgress: 100
+    firstValue: 0.2
+    addValue: -0.01
+  PlayerSpeed:
+    maxLevel: 10
+    currentLevel: 1
+    cost: 100
+    costProgress: 100
+    firstValue: 700
+    addValue: 80
+  PlayerHealth:
+    maxLevel: 10
+    currentLevel: 1
+    cost: 100
+    costProgress: 90
+    firstValue: 100
+    addValue: 10
+  JetpackForce:
+    maxLevel: 9
+    currentLevel: 0
+    cost: 90
+    costProgress: 50
+    firstValue: 900
+    addValue: 90
+  JetpackCulldown:
+    maxLevel: 5
+    currentLevel: 1
+    cost: 100
+    costProgress: 50
+    firstValue: 5
+    addValue: -0.5

@@ -7,12 +7,14 @@ public class EventHolder : MonoBehaviour
 {
     public static EventHolder Singlton;
 
-    public delegate void Action(System.Object obj);
-
     public Action UseRocket, UseGranate, UseShotgun, UseJetPack,
-    GetRocket, GetGranate, GetShotgun, // TODO add free button
-    AddEnemyCount, CompleteWave, VictoryGame, DefeatGame,
-    Massage, PlanetAddMaxHealth, PlanetTakeDamage, PlayerChangeHealth;
+    CompleteWave, VictoryGame, DefeatGame;
+
+    public Action<int> AddEnemyCount;
+
+    public Action<string> Massage, PlanetAddMaxHealth;
+
+    public Action<float> PlanetChangeHealth, PlayerChangeHealth;
 
     void Awake()
     {

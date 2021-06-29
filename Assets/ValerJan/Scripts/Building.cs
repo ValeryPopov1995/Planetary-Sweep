@@ -15,13 +15,14 @@ public class Building : MonoBehaviour
 			health = Config.Health;
 			tag = "Planetary Object";
 
-			EventHolder.Singlton.PlanetAddMaxHealth?.Invoke(health);
+			EventHolder.Singlton.PlanetChangeHealth?.Invoke(health);
 		}
 		
 		public void TakeDamage(float damage)
 		{
+			if (damage > health) damage = health; // получение урона без избытка
 			health -= damage;
-			EventHolder.Singlton.PlanetTakeDamage?.Invoke(damage); // TODO может отнять здоровья с избытком
+			EventHolder.Singlton.PlanetChangeHealth?.Invoke(-damage);
 
 			if (health <= 0) die();
 			else if (!halfDamaged && health < Config.Health / 2)

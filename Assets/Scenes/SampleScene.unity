@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GamePlaySets: {fileID: 11400000, guid: 1613d93b02e04c841a1e3d737989d363, type: 2}
-  PlayerSets: {fileID: 11400000, guid: 6929a46867ae7404b9452c8875343f89, type: 2}
+  Purchases: {fileID: 11400000, guid: 109a108db91c47b43911d989ac910b20, type: 2}
 --- !u!1 &85818211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,6 +2429,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624547429}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &631974047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631974048}
+  - component: {fileID: 631974049}
+  m_Layer: 0
+  m_Name: Saver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &631974048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631974047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 946935329}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &631974049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631974047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689a514865db55c479ddda6c0da3f1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultGameConfig: {fileID: 11400000, guid: 1613d93b02e04c841a1e3d737989d363, type: 2}
+  CurrentGameConfig: {fileID: 11400000, guid: c05623b9cad3a8e48bb3e8f7c88a6afb, type: 2}
 --- !u!1 &681180636
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,6 +3410,7 @@ Transform:
   - {fileID: 1772888703}
   - {fileID: 1157034632}
   - {fileID: 705507995}
+  - {fileID: 631974048}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

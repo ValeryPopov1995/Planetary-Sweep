@@ -11,13 +11,13 @@ public class EnemyCounter : MonoBehaviour
 			EventHolder.Singlton.AddEnemyCount += addEnemy;
 		}
 		
-		void addEnemy(System.Object obj)
+		void addEnemy(int count)
 		{
-			enemyCounter += (int)obj;
+			enemyCounter += count;
 			if (enemyCounter <= 0)
 			{
 				enemyCounter = 0;
-				EventHolder.Singlton.CompleteWave?.Invoke(null);
+				EventHolder.Singlton.CompleteWave?.Invoke();
 			}
 		}
 	}

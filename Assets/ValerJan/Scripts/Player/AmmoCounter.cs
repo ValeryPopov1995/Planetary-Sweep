@@ -12,7 +12,7 @@ public class AmmoCounter : MonoBehaviour
         var bonus = other.GetComponent<ParashuteBonus>();
         if (bonus != null)
         {
-            if (Granates.ChangeAmmo(bonus.AddValue)) EventHolder.Singlton.GetGranate(Granates.CurrentValue);
+            // TODO logic
         }
     }
 }

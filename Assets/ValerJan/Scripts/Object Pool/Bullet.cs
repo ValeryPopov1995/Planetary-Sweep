@@ -33,7 +33,7 @@ public class Bullet : PoolableObject
         if (Sets.EnemyBullet)
         {
             if (collision.gameObject.CompareTag("Player")) { EventHolder.Singlton.PlayerChangeHealth?.Invoke(Sets.Damage); }
-            else if (collision.gameObject.CompareTag("Planetary Object")) { EventHolder.Singlton.PlanetTakeDamage?.Invoke(Sets.Damage); }
+            else if (collision.gameObject.CompareTag("Planetary Object")) { EventHolder.Singlton.PlanetChangeHealth?.Invoke(Sets.Damage); }
         }
         else
         {

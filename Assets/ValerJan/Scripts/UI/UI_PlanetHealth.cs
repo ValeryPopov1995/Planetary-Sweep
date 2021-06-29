@@ -12,7 +12,7 @@ public class UI_PlanetHealth : MonoBehaviour
     void Start()
     {
         EventHolder.Singlton.PlanetAddMaxHealth += addValue;
-        EventHolder.Singlton.PlanetTakeDamage += takeDamage;
+        EventHolder.Singlton.PlanetChangeHealth += takeDamage;
 
         txt = GetComponent<Text>();
     }
@@ -23,9 +23,9 @@ public class UI_PlanetHealth : MonoBehaviour
         value = maxValue;
     }
 
-    void takeDamage(System.Object obj)
+    void takeDamage(float damage)
     {
-        value -= (float)obj;
+        value -= damage;
         int per = (int) (value / maxValue * 100);
         txt.text = per + "%";
     }

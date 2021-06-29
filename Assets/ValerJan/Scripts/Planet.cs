@@ -12,7 +12,7 @@ public class Planet : MonoBehaviour
     void Start()
     {
         EventHolder.Singlton.PlanetAddMaxHealth += addHealth;
-        EventHolder.Singlton.PlanetTakeDamage += takeDamage;
+        EventHolder.Singlton.PlanetChangeHealth += takeDamage;
 
         if (DeployPoints.Length == 0) Debug.LogError("нет точек десантирования");
         foreach(var e in DeployPoints)
@@ -33,9 +33,9 @@ public class Planet : MonoBehaviour
         PlanetaryHealth += (float)obj;
     }
 
-    void takeDamage(System.Object obj)
+    void takeDamage(float damage)
     {
-        PlanetaryHealth -= (float)obj;
-        if (PlanetaryHealth <= 0) EventHolder.Singlton.DefeatGame?.Invoke(null);
+        PlanetaryHealth -= (float)damage;
+        if (PlanetaryHealth <= 0) EventHolder.Singlton.DefeatGame?.Invoke();
     }
 }

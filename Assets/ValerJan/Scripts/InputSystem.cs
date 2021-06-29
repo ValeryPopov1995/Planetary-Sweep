@@ -23,10 +23,10 @@ public class InputSystem : MonoBehaviour
         Application.Quit();
     }
 
-    public void Button_Rocket() { EventHolder.Singlton.UseRocket?.Invoke(null); }
-    public void Button_Granate() { EventHolder.Singlton.UseGranate?.Invoke(null); }
-    public void Button_Shotgun() { EventHolder.Singlton.UseShotgun?.Invoke(null); }
-    public void Button_JetPack() { EventHolder.Singlton.UseJetPack?.Invoke(null); }
+    public void Button_Rocket() { EventHolder.Singlton.UseRocket?.Invoke(); }
+    public void Button_Granate() { EventHolder.Singlton.UseGranate?.Invoke(); }
+    public void Button_Shotgun() { EventHolder.Singlton.UseShotgun?.Invoke(); }
+    public void Button_JetPack() { EventHolder.Singlton.UseJetPack?.Invoke(); }
 
     public void Button_HideCanvases()
     {

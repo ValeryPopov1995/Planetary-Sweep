@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6efd9a702f5635e418aeb4a7931a4518, type: 3}
-  m_Name: Player config
+  m_Script: {fileID: 11500000, guid: 281c8832bf41a3b458e6d8a3add1d353, type: 3}
+  m_Name: Game Saved config
   m_EditorClassIdentifier: 
-  Speed: 700
-  Health: 100
-  Sensetivity: 10
-  JetpackForce: 1450
-  JetpackCullback: 2
+  Gravity: 1000
+  EnemyWaveCullback: 5
+  SpaceshipSpownTime: 5
+  TimerDestroySpaceships: 5
   AutoFireAngle: 9
   AutoFireRange: 15
-  AutoFireCullback: 0.15
-  RifleBulletPrefab: {fileID: 3625737723354933935, guid: 3d5db4b5d3d9858468867eefc767f1de,
+  Sensetivity: 20
+  TargetFPS: 60
+  AutoriflePrefab: {fileID: 3625737723354933935, guid: 3d5db4b5d3d9858468867eefc767f1de,
     type: 3}

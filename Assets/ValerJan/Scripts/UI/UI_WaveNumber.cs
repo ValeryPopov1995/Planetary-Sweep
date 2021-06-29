@@ -15,17 +15,18 @@ public class UI_WaveNumber : MonoBehaviour
         txt = GetComponent<Text>();
 
         txt.text = number + "/" + maxWave;
+        
         EventHolder.Singlton.CompleteWave += showWaveNumber;
     }
 
-    void showWaveNumber(System.Object obj)
+    void showWaveNumber()
     {
         number++;
-        txt.text = number + "/" + maxWave;
-    }
-
-    void showVictory(System.Object obj)
-    {
-        txt.text = "";
+        if (number > maxWave)
+        {
+            EventHolder.Singlton.VictoryGame();
+            txt.text = "";
+        }
+        else txt.text = number + "/" + maxWave;
     }
 }

@@ -19,13 +19,13 @@ public class EnemyWaveManager : MonoBehaviour
 			StartCoroutine(nextWave()); // TODO начало сразу, но можно подумать
 		}
 		
-		void waveComplete(System.Object obj)
+		void waveComplete()
 		{
 			Debug.Log("wave # " + index + " complete");
 
 			index++;
 			if (index <= ScriptableWaves.Waves.Length) StartCoroutine(nextWave());
-			else EventHolder.Singlton.VictoryGame?.Invoke(null);
+			else EventHolder.Singlton.VictoryGame?.Invoke();
 		}
 		
 		IEnumerator nextWave()

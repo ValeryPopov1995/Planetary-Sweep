@@ -5,7 +5,7 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     public GameConfig GamePlaySets;
-    public PlayerConfig PlayerSets;
+    public PurchasesConfig Purchases;
     public static Settings Singleton;
 
     void Awake()
