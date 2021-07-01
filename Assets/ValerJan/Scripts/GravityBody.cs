@@ -5,11 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class GravityBody : MonoBehaviour
 {
-    Planet planet;
+    Planet _planet;
 
     void Start()
     {
-        planet = FindObjectOfType<Planet>();
+        _planet = FindObjectOfType<Planet>();
         var rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         rb.useGravity = false;
@@ -17,6 +17,6 @@ public class GravityBody : MonoBehaviour
 
     void FixedUpdate()
     {
-        planet.Attract(transform);
+        _planet.Attract(transform);
     }
 }

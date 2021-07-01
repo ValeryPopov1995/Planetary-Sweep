@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCounter : MonoBehaviour
 	{
-		int enemyCounter;
+		int _enemyCount;
 		
 		void Start()
 		{
@@ -13,10 +13,10 @@ public class EnemyCounter : MonoBehaviour
 		
 		void addEnemy(int count)
 		{
-			enemyCounter += count;
-			if (enemyCounter <= 0)
+			_enemyCount += count;
+			if (_enemyCount <= 0)
 			{
-				enemyCounter = 0;
+				_enemyCount = 0;
 				EventHolder.Singlton.CompleteWave?.Invoke();
 			}
 		}

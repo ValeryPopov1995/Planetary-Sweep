@@ -8,28 +8,28 @@ public class FPSDisplay : MonoBehaviour
 {
     public int FrameArray = 10;
 
-    float[] delta;
-    int index;
-    Text text;
+    float[] _delta;
+    int _index;
+    Text _text;
 
     void Start()
     {
-        text = GetComponent<Text>();
-        delta = new float[FrameArray];
+        _text = GetComponent<Text>();
+        _delta = new float[FrameArray];
     }
 
     void Update()
     {
-        text.text = GetFPS() + " FPS";
+        _text.text = GetFPS() + " FPS";
     }
 
     public float GetFPS()
     {
-        delta[index] = Time.deltaTime;
-        index++;
-        if (index == FrameArray) index = 0;
+        _delta[_index] = Time.deltaTime;
+        _index++;
+        if (_index == FrameArray) _index = 0;
         float midleDelta = 0;
-        foreach(var e in delta) midleDelta += e;
+        foreach(var e in _delta) midleDelta += e;
         midleDelta /= FrameArray;
         return (int)(1 / midleDelta);
     }

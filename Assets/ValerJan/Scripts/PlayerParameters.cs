@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerParameters : MonoBehaviour
 {
-    float health;
+    float _health;
 
     void Start()
     {
-        health = Settings.Singleton.Purchases.PlayerHealth.CurrentValue;
+        _health = Settings.Singleton.Purchases.PlayerHealth.CurrentValue;
         EventHolder.Singlton.PlayerChangeHealth += takeDamage;
 
         transform.position = FindObjectOfType<Planet>().StartPlayerPosition.position;
@@ -16,8 +16,8 @@ public class PlayerParameters : MonoBehaviour
 
     void takeDamage(float damage)
     {
-        health -= (float)damage;
-        if (health <= 0) die();
+        _health -= (float)damage;
+        if (_health <= 0) die();
     }
 
     void die()

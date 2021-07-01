@@ -6,27 +6,27 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class UI_WaveNumber : MonoBehaviour
 {
-    int number = 1, maxWave;
-    Text txt;
+    int _waveNumber = 1, _waveCount;
+    Text _text;
 
     void Start()
     {
-        maxWave = FindObjectOfType<Planet>().PlanetaryWaves.Waves.Length;
-        txt = GetComponent<Text>();
+        _waveCount = FindObjectOfType<Planet>().PlanetaryWaves.Waves.Length;
+        _text = GetComponent<Text>();
 
-        txt.text = number + "/" + maxWave;
+        _text.text = _waveNumber + "/" + _waveCount;
         
         EventHolder.Singlton.CompleteWave += showWaveNumber;
     }
 
     void showWaveNumber()
     {
-        number++;
-        if (number > maxWave)
+        _waveNumber++;
+        if (_waveNumber > _waveCount)
         {
             EventHolder.Singlton.VictoryGame();
-            txt.text = "";
+            _text.text = "";
         }
-        else txt.text = number + "/" + maxWave;
+        else _text.text = _waveNumber + "/" + _waveCount;
     }
 }

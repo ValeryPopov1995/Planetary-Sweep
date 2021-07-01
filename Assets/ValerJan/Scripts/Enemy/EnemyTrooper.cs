@@ -8,7 +8,7 @@ public class EnemyTrooper : EnemyBaheviour
 {
     protected override void rotateToTarget()
     {
-        Vector3 toTarget = (target.position - Body.position).normalized;
+        Vector3 toTarget = (_target.position - Body.position).normalized;
         //Body.rotation = Quaternion.LookRotation(toTarget);
         var look = Quaternion.LookRotation(toTarget, Body.up);
         Body.rotation = new Quaternion(Body.rotation.x, look.y, Body.rotation.z, look.w);
@@ -16,9 +16,9 @@ public class EnemyTrooper : EnemyBaheviour
 
     protected override void attack()
     {
-        if (Time.time < lastAttack + Sets.AttackCullback) return;
+        if (Time.time < _lastAttackTime + Sets.AttackCullback) return;
 
-        lastAttack = Time.time;
+        _lastAttackTime = Time.time;
         ObjectPool.Singleton.InstantiateFromPool(Sets.Bullet, BulletSpownPoint.position, BulletSpownPoint.rotation);
         //Debug.Log("trooper attack");
     }

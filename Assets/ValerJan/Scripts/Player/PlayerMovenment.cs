@@ -7,58 +7,58 @@ public class PlayerMovenment : MonoBehaviour
 {
     public Transform Body;
 
-    int jetpackSpeedOut = 10;
-    float cameraVerticalAngle, jumpPositiveAddGravity, lastTimeJetpack, sensetivity, gravity, speed, jetCD, jetForce;
+    int _jetpackPositiveGravityFade = 10;
+    float _cameraVerticalAngle, _jumpPositiveAddGravity, _lastJetpackTime, _sensetivity, _gravity, _speed, _jetpackCulldown, _jetForce;
 
-    Rigidbody rb;
-    InputSystem input;
-    Transform cam;
+    Rigidbody _rigidbody;
+    InputSystem _input;
+    Transform _camera;
 
     void Start()
     {
         EventHolder.Singlton.UseJetPack += jetpack;
 
-        rb = Body.GetComponent<Rigidbody>();
-        input = InputSystem.Singleton;
-        cam = Camera.main.transform;
+        _rigidbody = Body.GetComponent<Rigidbody>();
+        _input = InputSystem.Singleton;
+        _camera = Camera.main.transform;
 
         var sets = Settings.Singleton;
-        sensetivity = sets.GameSettings.Sensetivity;
-        gravity = sets.GameBalance.Gravity;
-        speed = sets.Purchases.PlayerSpeed.CurrentValue;
-        jetCD = sets.Purchases.JetpackCulldown.CurrentValue;
-        jetForce = sets.Purchases.JetpackForce.CurrentValue;
+        _sensetivity = sets.GameSettings.Sensetivity;
+        _gravity = sets.GameBalance.Gravity;
+        _speed = sets.Purchases.PlayerSpeed.CurrentValue;
+        _jetpackCulldown = sets.Purchases.JetpackCulldown.CurrentValue;
+        _jetForce = sets.Purchases.JetpackForce.CurrentValue;
     }
 
     void Update()
     {
         #region  rotate
-        Vector2 mouseDelta = input.EyeTrigger.GetDelta();
-        Body.Rotate(Vector3.up * mouseDelta.x * sensetivity * Time.deltaTime);
-        cameraVerticalAngle -= mouseDelta.y * sensetivity * Time.deltaTime;
-        cameraVerticalAngle = Mathf.Clamp(cameraVerticalAngle, -60, 60);
-        cam.localEulerAngles = new Vector3(cameraVerticalAngle, 0, 0);
+        Vector2 mouseDelta = _input.EyeTrigger.GetDelta();
+        Body.Rotate(Vector3.up * mouseDelta.x * _sensetivity * Time.deltaTime);
+        _cameraVerticalAngle -= mouseDelta.y * _sensetivity * Time.deltaTime;
+        _cameraVerticalAngle = Mathf.Clamp(_cameraVerticalAngle, -60, 60);
+        _camera.localEulerAngles = new Vector3(_cameraVerticalAngle, 0, 0);
         #endregion
     }
 
     void FixedUpdate()
     {
         #region movenment
-        if (jumpPositiveAddGravity > 0) jumpPositiveAddGravity -= jetpackSpeedOut;
+        if (_jumpPositiveAddGravity > 0) _jumpPositiveAddGravity -= _jetpackPositiveGravityFade;
 
-        Vector3 moveInput = Body.right * input.MoveStick.Horizontal + Body.forward * input.MoveStick.Vertical;
+        Vector3 moveInput = Body.right * _input.MoveStick.Horizontal + Body.forward * _input.MoveStick.Vertical;
         
-        rb.velocity = moveInput * speed;
-        rb.velocity += Body.up * (jumpPositiveAddGravity - gravity);
-        rb.velocity *= Time.fixedDeltaTime;
+        _rigidbody.velocity = moveInput * _speed;
+        _rigidbody.velocity += Body.up * (_jumpPositiveAddGravity - _gravity);
+        _rigidbody.velocity *= Time.fixedDeltaTime;
         #endregion
     }
 
     void jetpack()
     {
-        if (Time.time < jetCD + lastTimeJetpack) return;
-        lastTimeJetpack = Time.time;
+        if (Time.time < _jetpackCulldown + _lastJetpackTime) return;
+        _lastJetpackTime = Time.time;
 
-        jumpPositiveAddGravity = jetForce;
+        _jumpPositiveAddGravity = _jetForce;
     }
 }

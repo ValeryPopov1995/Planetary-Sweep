@@ -7,27 +7,27 @@ public class Building : MonoBehaviour
 		public BuildingConfig Config;
 		public GameObject FullBuild, HalfDamage;
 		
-		float health;
-		bool halfDamaged = false;
+		float _health;
+		bool _halfDamaged = false;
 		
 		void Start()
 		{
-			health = Config.Health;
+			_health = Config.Health;
 			tag = "Planetary Object";
 
-			EventHolder.Singlton.PlanetChangeHealth?.Invoke(health);
+			EventHolder.Singlton.PlanetChangeHealth?.Invoke(_health);
 		}
 		
 		public void TakeDamage(float damage)
 		{
-			if (damage > health) damage = health; // получение урона без избытка
-			health -= damage;
+			if (damage > _health) damage = _health; // получение урона без избытка
+			_health -= damage;
 			EventHolder.Singlton.PlanetChangeHealth?.Invoke(-damage);
 
-			if (health <= 0) die();
-			else if (!halfDamaged && health < Config.Health / 2)
+			if (_health <= 0) die();
+			else if (!_halfDamaged && _health < Config.Health / 2)
 			{
-				halfDamaged = true;
+				_halfDamaged = true;
 				Instantiate(PrefabFactory.FactorySinglton.PrefabsConfig.boom, transform.position, transform.rotation);
 			}
 		}

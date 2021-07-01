@@ -6,28 +6,28 @@ using UnityEngine.UI;
 
 public class Saver : MonoBehaviour
 {
-    [SerializeField] AudioMixer Mixer;
-    [SerializeField] Slider effects, music;
-    [SerializeField] Dropdown fps;
+    [SerializeField] AudioMixer _mixer;
+    [SerializeField] Slider _effects, _music;
+    [SerializeField] Dropdown _fpsDropdown;
 
-    GameSettingsConfig sets;
+    GameSettingsConfig _gameSettings;
 
     void Start()
     {
-        sets = Settings.Singleton.GameSettings;
+        _gameSettings = Settings.Singleton.GameSettings;
 
-        effects.value = sets.VolumeEffects;
-        music.value = sets.VolumeMusic;
-        fps.value = sets.DropdownFPS;
+        _effects.value = _gameSettings.VolumeEffects;
+        _music.value = _gameSettings.VolumeMusic;
+        _fpsDropdown.value = _gameSettings.DropdownFPS;
         
         applySettings();
     }
     
     public void SaveSettings()
     {
-        if (sets.VolumeEffects != effects.value) sets.VolumeEffects = effects.value;
-        if (sets.VolumeMusic != music.value) sets.VolumeMusic = music.value;
-        if (sets.DropdownFPS != fps.value) sets.DropdownFPS = fps.value;
+        if (_gameSettings.VolumeEffects != _effects.value) _gameSettings.VolumeEffects = _effects.value;
+        if (_gameSettings.VolumeMusic != _music.value) _gameSettings.VolumeMusic = _music.value;
+        if (_gameSettings.DropdownFPS != _fpsDropdown.value) _gameSettings.DropdownFPS = _fpsDropdown.value;
 
         applySettings();
     }
@@ -57,8 +57,8 @@ public class Saver : MonoBehaviour
 
     void applySettings()
     {
-        Mixer.SetFloat("effects", sets.VolumeEffects);
-        Mixer.SetFloat("music", sets.VolumeMusic);
-        Application.targetFrameRate = sets.DropdownFPS * 30;
+        _mixer.SetFloat("effects", _gameSettings.VolumeEffects);
+        _mixer.SetFloat("music", _gameSettings.VolumeMusic);
+        Application.targetFrameRate = _gameSettings.DropdownFPS * 30;
     }
 }
