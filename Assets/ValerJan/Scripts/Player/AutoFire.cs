@@ -5,6 +5,7 @@ using UnityEngine;
 public class AutoFire : MonoBehaviour
 {
     public Transform SpownPoint;
+    [SerializeField] PurchaseConfig AutorifleCulldown;
 
     Transform _camera;
     Settings _settings;
@@ -23,7 +24,7 @@ public class AutoFire : MonoBehaviour
         foreach(var e in list)
         {
             float aimAngle = Vector3.Angle(_camera.forward, e.transform.position - _camera.position); // cam.forward
-            if (aimAngle <= _settings.GameBalance.AutoFireAngle && Time.time > _settings.Purchases.AutorifleCulldown.CurrentValue + _lastFireTime) fire();
+            if (aimAngle <= _settings.GameBalance.AutoFireAngle && Time.time > AutorifleCulldown.Value + _lastFireTime) fire();
         }
     }
 

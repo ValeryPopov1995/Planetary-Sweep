@@ -7,8 +7,10 @@ public class PlayerMovenment : MonoBehaviour
 {
     public Transform Body;
 
+    [SerializeField] PurchaseConfig _playerSpeed, _jetpackForce, _jetpackCulldown;
+
     int _jetpackPositiveGravityFade = 10;
-    float _cameraVerticalAngle, _jumpPositiveAddGravity, _lastJetpackTime, _sensetivity, _gravity, _speed, _jetpackCulldown, _jetForce;
+    float _cameraVerticalAngle, _jumpPositiveAddGravity, _lastJetpackTime, _sensetivity, _gravity;
 
     Rigidbody _rigidbody;
     InputSystem _input;
@@ -25,9 +27,6 @@ public class PlayerMovenment : MonoBehaviour
         var sets = Settings.Singleton;
         _sensetivity = sets.GameSettings.Sensetivity;
         _gravity = sets.GameBalance.Gravity;
-        _speed = sets.Purchases.PlayerSpeed.CurrentValue;
-        _jetpackCulldown = sets.Purchases.JetpackCulldown.CurrentValue;
-        _jetForce = sets.Purchases.JetpackForce.CurrentValue;
     }
 
     void Update()
@@ -48,7 +47,7 @@ public class PlayerMovenment : MonoBehaviour
 
         Vector3 moveInput = Body.right * _input.MoveStick.Horizontal + Body.forward * _input.MoveStick.Vertical;
         
-        _rigidbody.velocity = moveInput * _speed;
+        _rigidbody.velocity = moveInput * _playerSpeed.Value;
         _rigidbody.velocity += Body.up * (_jumpPositiveAddGravity - _gravity);
         _rigidbody.velocity *= Time.fixedDeltaTime;
         #endregion
@@ -56,9 +55,9 @@ public class PlayerMovenment : MonoBehaviour
 
     void jetpack()
     {
-        if (Time.time < _jetpackCulldown + _lastJetpackTime) return;
+        if (Time.time < _jetpackCulldown.Value + _lastJetpackTime) return;
         _lastJetpackTime = Time.time;
 
-        _jumpPositiveAddGravity = _jetForce;
+        _jumpPositiveAddGravity = _jetpackForce.Value;
     }
 }

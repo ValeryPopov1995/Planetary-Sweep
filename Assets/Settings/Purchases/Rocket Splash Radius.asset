@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5978520cbd59c478788ce26051540c, type: 3}
+  m_Name: Rocket Splash Radius
+  m_EditorClassIdentifier: 
+  ParentPurchase: {fileID: 11400000, guid: ce5dcda19f2335544999650311de62a3, type: 2}
+  maxLevel: 9
+  currentLevel: 6
+  defaultLevel: 1
+  startCost: 120
+  costProgress: 90
+  firstValue: 2
+  addValue: 0.2

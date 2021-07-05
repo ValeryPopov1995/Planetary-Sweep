@@ -12,87 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f26acbec57ce943ae251c47199a9dc, type: 3}
   m_Name: Purchases Default config
   m_EditorClassIdentifier: 
-  ShotgunDamage:
-    maxLevel: 10
-    currentLevel: 0
-    cost: 100
-    costProgress: 60
-    firstValue: 10
-    addValue: 1
-  ShotgunCulldown:
-    maxLevel: 10
-    currentLevel: 1
-    cost: 100
-    costProgress: 70
-    firstValue: 5
-    addValue: -0.5
-  ShotgunMaxCount:
-    maxLevel: 10
-    currentLevel: 1
-    cost: 100
-    costProgress: 70
-    firstValue: 3
-    addValue: 1
-  RocketDamage:
-    maxLevel: 10
-    currentLevel: 0
-    cost: 100
-    costProgress: 90
-    firstValue: 20
-    addValue: 2
-  RocketSplashRadius:
-    maxLevel: 10
-    currentLevel: 1
-    cost: 100
-    costProgress: 90
-    firstValue: 2
-    addValue: 0.2
-  RocketMaxCount:
-    maxLevel: 10
-    currentLevel: 1
-    cost: 100
-    costProgress: 80
-    firstValue: 3
-    addValue: 1
-  AutorifleDamage:
-    maxLevel: 10
-    currentLevel: 1
-    cost: 150
-    costProgress: 100
-    firstValue: 10
-    addValue: 1
-  AutorifleCulldown:
-    maxLevel: 10
-    currentLevel: 1
-    cost: 100
-    costProgress: 100
-    firstValue: 0.2
-    addValue: -0.01
-  PlayerSpeed:
-    maxLevel: 10
-    currentLevel: 1
-    cost: 100
-    costProgress: 100
-    firstValue: 700
-    addValue: 80
-  PlayerHealth:
-    maxLevel: 10
-    currentLevel: 1
-    cost: 100
-    costProgress: 90
-    firstValue: 100
-    addValue: 10
-  JetpackForce:
-    maxLevel: 9
-    currentLevel: 0
-    cost: 90
-    costProgress: 50
-    firstValue: 900
-    addValue: 90
-  JetpackCulldown:
-    maxLevel: 5
-    currentLevel: 1
-    cost: 100
-    costProgress: 50
-    firstValue: 5
-    addValue: -0.5
+  Purchases:
+  - {fileID: 11400000, guid: 3ffc5893c3298af4ab4400d10756364b, type: 2}
+  - {fileID: 11400000, guid: 2e6129be088e42140b45a9e737b1c494, type: 2}
+  - {fileID: 11400000, guid: 7a9550b7f6c131a48ab56ccb7fc0fe70, type: 2}
+  - {fileID: 11400000, guid: 937377498576788459367c69dbc962d5, type: 2}
+  - {fileID: 11400000, guid: 6a2972e843e1ada45a64e620e54cb64a, type: 2}
+  - {fileID: 11400000, guid: 5ef567ea440f40449bb9753764b57b99, type: 2}
+  - {fileID: 11400000, guid: 5242082470b3c3446bdbf540f7d85e9a, type: 2}
+  - {fileID: 11400000, guid: ce5dcda19f2335544999650311de62a3, type: 2}
+  - {fileID: 11400000, guid: d299147510eee63468ebe00f802d0801, type: 2}
+  - {fileID: 11400000, guid: aa1b989ee41ea1141b4f7c5513d44496, type: 2}
+  - {fileID: 11400000, guid: 99617a03d391fbf42b9125a0bc15dac3, type: 2}
+  - {fileID: 11400000, guid: ea0938d2c0010f3449aac0552c3b9410, type: 2}

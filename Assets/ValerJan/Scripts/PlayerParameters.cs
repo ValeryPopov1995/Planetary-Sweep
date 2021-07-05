@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerParameters : MonoBehaviour
 {
+    [SerializeField] PurchaseConfig playerHealth;
     float _health;
 
     void Start()
     {
-        _health = Settings.Singleton.Purchases.PlayerHealth.CurrentValue;
+        _health = playerHealth.Value;
         EventHolder.Singlton.PlayerChangeHealth += takeDamage;
 
         transform.position = FindObjectOfType<Planet>().StartPlayerPosition.position;
