@@ -5,27 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class EnemyScaner : MonoBehaviour
 {
-    public EnemyBaheviour Baheviour;
+    [SerializeField] EnemyBaheviour _baheviour;
 
     void Start()
     {
         var sp = GetComponent<SphereCollider>();
         sp.isTrigger = true;
-        sp.radius = Baheviour.Sets.SeeRange;
+        sp.radius = _baheviour.Sets.SeeRange;
         
         //gameObject.AddComponent<Rigidbody>().isKinematic = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Baheviour.Sets.Priority == EnemyBaheviour.TargetPriority.player) return;
-        if (other.CompareTag("Player")) Baheviour.SetTarget(other.transform);
-        Debug.Log(Baheviour.Body.name + "'s target is Player");
+        if (_baheviour.Sets.Priority == EnemyBaheviour.TargetPriority.player) return;
+        if (other.CompareTag("Player")) _baheviour.SetTarget(other.transform);
+        Debug.Log(_baheviour.Body.name + "'s target is Player");
     }
     private void OnTriggerExit(Collider other)
     {
-        if (Baheviour.Sets.Priority == EnemyBaheviour.TargetPriority.player) return;
-        if (other.CompareTag("Player")) Baheviour.FindBuilding();
-        Debug.Log(Baheviour.Body.name + "'s target is Building");
+        if (_baheviour.Sets.Priority == EnemyBaheviour.TargetPriority.player) return;
+        if (other.CompareTag("Player")) _baheviour.FindBuilding();
+        Debug.Log(_baheviour.Body.name + "'s target is Building");
     }
 }

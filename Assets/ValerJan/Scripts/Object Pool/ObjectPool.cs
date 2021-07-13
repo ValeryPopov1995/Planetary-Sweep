@@ -7,7 +7,7 @@ public class ObjectPool : MonoBehaviour
 {
 	public static ObjectPool Singleton;
 	
-	public List<GameObject> pool = new List<GameObject>();
+	List<GameObject> _pool = new List<GameObject>();
 	
 	void Start()
 	{
@@ -18,7 +18,7 @@ public class ObjectPool : MonoBehaviour
 	public void InstantiateFromPool(GameObject prefab, Vector3 position, Quaternion rotation)
 	{
 		bool founded = false;
-		foreach (var e in pool)
+		foreach (var e in _pool)
 		{
 			if (e.name == prefab.name + "(Clone)")
 			{
@@ -28,7 +28,7 @@ public class ObjectPool : MonoBehaviour
 				e.transform.rotation = rotation;
 				
 				e.SetActive(true);
-				pool.Remove(e);
+				_pool.Remove(e);
 				
 				break;
 			}
@@ -44,27 +44,27 @@ public class ObjectPool : MonoBehaviour
 	
 	public void AddPoolableObject(GameObject poolableObject)
 	{
-		pool.Add(poolableObject);
+		_pool.Add(poolableObject);
 	}
 	
 	public IEnumerator ClearPool()
 	{
-		foreach( var e in pool)
+		foreach( var e in _pool)
 		{
 			Destroy(e);
 			yield return new WaitForEndOfFrame();
 		}
-		pool.Clear();
+		_pool.Clear();
 	}
 	
 	public IEnumerator ClearPool(GameObject prefab)
 	{
-		foreach (var e in pool)
+		foreach (var e in _pool)
 		{
 			if (e == prefab)
 			{
 				Destroy(e);
-				pool.Remove(e);
+				_pool.Remove(e);
 				yield return new WaitForEndOfFrame();
 			}
 		}

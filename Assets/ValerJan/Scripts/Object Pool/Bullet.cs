@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : PoolableObject
 {
     public BulletConfig Sets;
-    public GameObject ImpactPrefab;
+    [SerializeField] GameObject _impactPrefab;
 
     void OnEnable()
     {
@@ -40,7 +40,7 @@ public class Bullet : PoolableObject
             if (collision.gameObject.CompareTag("Enemy")) collision.gameObject.GetComponentInChildren<EnemyBaheviour>().TakeDamage(this);
         }
 
-        if (ImpactPrefab != null) Instantiate(ImpactPrefab, transform.position, transform.rotation);
+        if (_impactPrefab != null) Instantiate(_impactPrefab, transform.position, transform.rotation);
         Destroy();
     }
 }

@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5ec7a64876b7f4089f9059c16ae7fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Baheviour: {fileID: 7656337685519940126}
+  _baheviour: {fileID: 7656337685519940126}
 --- !u!135 &1756078502011342300
 SphereCollider:
   m_ObjectHideFlags: 0

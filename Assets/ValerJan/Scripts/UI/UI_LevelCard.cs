@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class UI_LevelCard : MonoBehaviour
 {
-    [SerializeField] GameObject planetPrefab;
+    [SerializeField] GameObject _planetPrefab;
 
     public void LoadPlanet()
     {
-        Settings.Singleton.GameSettings.LoadingPlanet = planetPrefab;
+        Settings.Singleton.GameSettings.LoadingPlanet = _planetPrefab;
         SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
     }
 }

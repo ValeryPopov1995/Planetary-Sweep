@@ -5,8 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Game Settings", menuName = "Scriptable/Game Settingss", order = 1)]
 public class GameSettingsConfig : ScriptableObject
 {
-    public float VolumeEffects, VolumeMusic, Sensetivity = 100;
-    public int DropdownFPS = 60;
+    public float VolumeEffects;
+    public float VolumeMusic;
+    public float Sensetivity;
+    public int DropdownFPS = 1;
 
     public GameObject LoadingPlanet;
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 	{
-		public BuildingConfig Config;
-		public GameObject FullBuild, HalfDamage;
+		[SerializeField] BuildingConfig _config;
+		public GameObject FullBuild, HalfDamage; // TODO
 		
 		float _health;
 		bool _halfDamaged = false;
 		
 		void Start()
 		{
-			_health = Config.Health;
+			_health = _config.Health;
 			tag = "Planetary Object";
 
 			EventHolder.Singlton.PlanetChangeHealth?.Invoke(_health);
@@ -25,7 +25,7 @@ public class Building : MonoBehaviour
 			EventHolder.Singlton.PlanetChangeHealth?.Invoke(-damage);
 
 			if (_health <= 0) die();
-			else if (!_halfDamaged && _health < Config.Health / 2)
+			else if (!_halfDamaged && _health < _config.Health / 2)
 			{
 				_halfDamaged = true;
 				Instantiate(PrefabFactory.FactorySinglton.PrefabsConfig.boom, transform.position, transform.rotation);

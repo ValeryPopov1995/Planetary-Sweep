@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class ShooterEventTrigger : EventTrigger
 {
     Vector2 _delta;
-
     Vector2 _lastPos;
     PointerEventData _pointer;
 

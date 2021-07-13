@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2293583b3f2fbd8488a0d6118579ac3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: 8677bfe4ecd7bb043b383a050282aadc, type: 2}
+  _config: {fileID: 11400000, guid: 8677bfe4ecd7bb043b383a050282aadc, type: 2}
   FullBuild: {fileID: 8293960601879631971}
   HalfDamage: {fileID: 9148533268499719974}
 --- !u!65 &6222512185213803030

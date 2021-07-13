@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed0789982abac54f8d9c48103661200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetPrefab: {fileID: 2070827188748647384, guid: 277edb9fc11d8aa4a896a23e968fea40,
+  _planetPrefab: {fileID: 2070827188748647384, guid: 277edb9fc11d8aa4a896a23e968fea40,
     type: 3}
 --- !u!1 &6065699394122328166
 GameObject:

@@ -6,7 +6,7 @@ using UnityEngine;
 /// стреляет пуялми из бассейна
 public class EnemyMarine : EnemyTrooper
 {
-    public GameObject Parashute;
+    [SerializeField] GameObject Parashute;
     public float ParashuteVelocity, ParashuteTimer = 3;
 
     new void Start()
@@ -14,7 +14,8 @@ public class EnemyMarine : EnemyTrooper
         base.Start();
         StartCoroutine(closeParashute());
     }
-// TODO parashute baheviour
+
+    // TODO parashute baheviour
     IEnumerator closeParashute()
     {
         yield return new WaitForSeconds(ParashuteTimer);

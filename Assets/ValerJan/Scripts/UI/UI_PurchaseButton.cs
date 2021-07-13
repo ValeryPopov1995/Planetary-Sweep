@@ -10,6 +10,7 @@ public class UI_PurchaseButton : MonoBehaviour
     [SerializeField] PurchaseConfig _purchase;
     [SerializeField] LayoutElement _element;
     [SerializeField] LayoutGroup _elementGroup;
+    [SerializeField] Text _costText;
 
     Button _button;
 
@@ -30,14 +31,20 @@ public class UI_PurchaseButton : MonoBehaviour
         
         Settings.Singleton.Purchases.Cash -= _purchase.Cost;
         _purchase.LevelUp();
+        _costText.text = _purchase.Cost.ToString();
         updateButton();
     }
 
     void updateButton()
     {
+        bool interactable = false;
+
         var papa = _purchase.ParentPurchase;
-        if (papa != null && papa.Level == 0) _button.interactable = false;
-        else if (_purchase.Level == _purchase.MaxLevel) _button.interactable = false;
-        else _button.interactable = true;
+        if (papa != null && papa.Level == 0) interactable = false;
+        else if (_purchase.Level == _purchase.MaxLevel) interactable = false;
+        else interactable = true;
+
+        _costText.gameObject.SetActive(interactable);
+        _button.interactable = interactable;
     }
 }

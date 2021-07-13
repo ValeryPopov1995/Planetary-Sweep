@@ -13,7 +13,5 @@ public class Settings : MonoBehaviour
     {
         if (Singleton == null) Singleton = this;
         else Destroy(this);
-
-        Application.targetFrameRate = GameSettings.DropdownFPS;
     }
 }

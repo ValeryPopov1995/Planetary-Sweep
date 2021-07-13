@@ -5,8 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovenment : MonoBehaviour
 {
-    public Transform Body;
-
+    [SerializeField] Transform _body;
     [SerializeField] PurchaseConfig _playerSpeed, _jetpackForce, _jetpackCulldown;
 
     int _jetpackPositiveGravityFade = 10;
@@ -20,7 +19,7 @@ public class PlayerMovenment : MonoBehaviour
     {
         EventHolder.Singlton.UseJetPack += jetpack;
 
-        _rigidbody = Body.GetComponent<Rigidbody>();
+        _rigidbody = _body.GetComponent<Rigidbody>();
         _input = InputSystem.Singleton;
         _camera = Camera.main.transform;
 
@@ -33,7 +32,7 @@ public class PlayerMovenment : MonoBehaviour
     {
         #region  rotate
         Vector2 mouseDelta = _input.EyeTrigger.GetDelta();
-        Body.Rotate(Vector3.up * mouseDelta.x * _sensetivity * Time.deltaTime);
+        _body.Rotate(Vector3.up * mouseDelta.x * _sensetivity * Time.deltaTime);
         _cameraVerticalAngle -= mouseDelta.y * _sensetivity * Time.deltaTime;
         _cameraVerticalAngle = Mathf.Clamp(_cameraVerticalAngle, -60, 60);
         _camera.localEulerAngles = new Vector3(_cameraVerticalAngle, 0, 0);
@@ -45,10 +44,10 @@ public class PlayerMovenment : MonoBehaviour
         #region movenment
         if (_jumpPositiveAddGravity > 0) _jumpPositiveAddGravity -= _jetpackPositiveGravityFade;
 
-        Vector3 moveInput = Body.right * _input.MoveStick.Horizontal + Body.forward * _input.MoveStick.Vertical;
+        Vector3 moveInput = _body.right * _input.MoveStick.Horizontal + _body.forward * _input.MoveStick.Vertical;
         
         _rigidbody.velocity = moveInput * _playerSpeed.Value;
-        _rigidbody.velocity += Body.up * (_jumpPositiveAddGravity - _gravity);
+        _rigidbody.velocity += _body.up * (_jumpPositiveAddGravity - _gravity);
         _rigidbody.velocity *= Time.fixedDeltaTime;
         #endregion
     }
