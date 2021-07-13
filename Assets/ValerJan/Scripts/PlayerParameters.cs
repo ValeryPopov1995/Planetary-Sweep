@@ -9,10 +9,9 @@ public class PlayerParameters : MonoBehaviour
 
     void Start()
     {
+        EventHolder.Singlton.PlanetLoaded += setStartPosition;
         _health = playerHealth.Value;
         EventHolder.Singlton.PlayerChangeHealth += takeDamage;
-
-        transform.position = FindObjectOfType<Planet>().StartPlayerPosition.position;
     }
 
     void takeDamage(float damage)
@@ -24,5 +23,10 @@ public class PlayerParameters : MonoBehaviour
     void die()
     {
         EventHolder.Singlton.DefeatGame?.Invoke();
+    }
+
+    void setStartPosition(Planet planet)
+    {
+        transform.position = planet.StartPlayerPosition.position;
     }
 }

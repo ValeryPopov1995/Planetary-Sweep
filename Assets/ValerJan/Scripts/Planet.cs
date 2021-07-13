@@ -20,12 +20,8 @@ public class Planet : MonoBehaviour
             Vector3 targetDir = (e.position - transform.position).normalized;
             e.rotation = Quaternion.FromToRotation(e.up, targetDir);
         }
-    }
 
-    public void Attract(Transform body)
-    {
-        Vector3 targetDir = (body.position - transform.position).normalized;
-        body.rotation = Quaternion.FromToRotation(body.up, targetDir) * body.rotation;
+        EventHolder.Singlton.PlanetLoaded(this);
     }
 
     void addHealth(System.Object obj)

@@ -11,12 +11,7 @@ public class EnemyWaveManager : MonoBehaviour
 		
 		void Start()
 		{
-			_waves = FindObjectOfType<Planet>().PlanetaryWaves;
-			_planet = FindObjectOfType<Planet>();
-			EventHolder.Singlton.CompleteWave += waveComplete;
-
-			foreach(var e in _planet.DeployPoints) _freeSpownPoints.Add(e, true); // all points are free to deploy
-			StartCoroutine(nextWave()); // TODO начало сразу, но можно подумать
+			EventHolder.Singlton.PlanetLoaded += initiateAfterPlanet;
 		}
 		
 		void waveComplete()
@@ -26,6 +21,16 @@ public class EnemyWaveManager : MonoBehaviour
 			_index++;
 			if (_index <= _waves.Waves.Length) StartCoroutine(nextWave());
 			else EventHolder.Singlton.VictoryGame?.Invoke();
+		}
+
+		void initiateAfterPlanet(Planet planet)
+		{
+			_planet = planet;
+			_waves = _planet.PlanetaryWaves;
+			EventHolder.Singlton.CompleteWave += waveComplete;
+
+			foreach(var e in _planet.DeployPoints) _freeSpownPoints.Add(e, true); // all points are free to deploy
+			StartCoroutine(nextWave()); // TODO начало сразу, но можно подумать
 		}
 		
 		IEnumerator nextWave()

@@ -9,7 +9,6 @@ public class GravityBody : MonoBehaviour
 
     void Start()
     {
-        _planet = FindObjectOfType<Planet>();
         var rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         rb.useGravity = false;
@@ -17,6 +16,7 @@ public class GravityBody : MonoBehaviour
 
     void FixedUpdate()
     {
-        _planet.Attract(transform);
+        Vector3 targetDir = (transform.position - Vector3.zero).normalized;
+        transform.rotation = Quaternion.FromToRotation(transform.up, targetDir) * transform.rotation;
     }
 }

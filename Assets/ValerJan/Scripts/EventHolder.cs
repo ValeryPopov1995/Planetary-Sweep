@@ -7,6 +7,8 @@ public class EventHolder : MonoBehaviour
 {
     public static EventHolder Singlton;
 
+    public Action<Planet> PlanetLoaded;
+
     public Action UseRocket, UseGranate, UseShotgun, UseJetPack,
     CompleteWave, VictoryGame, DefeatGame;
 

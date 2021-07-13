@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 44126354095259179}
   - component: {fileID: 1389825370545529954}
   - component: {fileID: 8173527100465299063}
+  - component: {fileID: 7153652147147915645}
   m_Layer: 5
   m_Name: Level Card
   m_TagString: Untagged
@@ -174,6 +175,20 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7153652147147915645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5647783903681699592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed0789982abac54f8d9c48103661200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetPrefab: {fileID: 2070827188748647384, guid: 277edb9fc11d8aa4a896a23e968fea40,
+    type: 3}
 --- !u!1 &6065699394122328166
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +309,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8613300069781472069}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7153652147147915645}
+        m_TargetAssemblyTypeName: UI_LevelCard, Assembly-CSharp
+        m_MethodName: LoadPlanet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7449666606397829876
 GameObject:
   m_ObjectHideFlags: 0

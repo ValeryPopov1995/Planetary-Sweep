@@ -11,15 +11,11 @@ public class UI_WaveNumber : MonoBehaviour
 
     void Start()
     {
-        _waveCount = FindObjectOfType<Planet>().PlanetaryWaves.Waves.Length;
-        _text = GetComponent<Text>();
-
-        _text.text = _waveNumber + "/" + _waveCount;
-        
-        EventHolder.Singlton.CompleteWave += showWaveNumber;
+        EventHolder.Singlton.PlanetLoaded += initiateAfterPlanet;        
+        EventHolder.Singlton.CompleteWave += showCurrentWave;
     }
 
-    void showWaveNumber()
+    void showCurrentWave()
     {
         _waveNumber++;
         if (_waveNumber > _waveCount)
@@ -28,5 +24,13 @@ public class UI_WaveNumber : MonoBehaviour
             _text.text = "";
         }
         else _text.text = _waveNumber + "/" + _waveCount;
+    }
+
+    void initiateAfterPlanet(Planet planet)
+    {
+        _waveCount = planet.PlanetaryWaves.Waves.Length;
+        _text = GetComponent<Text>();
+
+        _text.text = _waveNumber + "/" + _waveCount;
     }
 }
