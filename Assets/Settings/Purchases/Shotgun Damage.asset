@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5978520cbd59c478788ce26051540c, type: 3}
   m_Name: Shotgun Damage
   m_EditorClassIdentifier: 
+  ParentPurchase: {fileID: 0}
   maxLevel: 10
-  currentLevel: 0
+  currentLevel: 7
   defaultLevel: 0
   startCost: 70
   costProgress: 60

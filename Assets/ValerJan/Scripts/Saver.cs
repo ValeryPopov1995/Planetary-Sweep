@@ -9,7 +9,6 @@ public class Saver : MonoBehaviour
     [SerializeField] AudioMixer _mixer;
     [SerializeField] Slider _effects, _music;
     [SerializeField] Dropdown _fpsDropdown;
-
     GameSettingsConfig _gameSettings;
 
     void Start()
@@ -34,9 +33,10 @@ public class Saver : MonoBehaviour
 
     public void ResetProgress()
     {
-        var pur = Settings.Singleton.Purchases.Purchases;
+        var pur = Settings.Singleton.Purchases;
 
-        foreach(PurchaseConfig p in pur) p.ResetLevel();
+        pur.Cash = 0;
+        foreach(PurchaseConfig p in pur.Purchases) p.ResetLevel();
     }
 
     void applySettings()

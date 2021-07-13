@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88f26acbec57ce943ae251c47199a9dc, type: 3}
-  m_Name: Purchases Default config
+  m_Name: Purchases config
   m_EditorClassIdentifier: 
+  Cash: 50
   Purchases:
-  - {fileID: 11400000, guid: 3ffc5893c3298af4ab4400d10756364b, type: 2}
   - {fileID: 11400000, guid: 2e6129be088e42140b45a9e737b1c494, type: 2}
   - {fileID: 11400000, guid: 7a9550b7f6c131a48ab56ccb7fc0fe70, type: 2}
   - {fileID: 11400000, guid: 937377498576788459367c69dbc962d5, type: 2}
@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa1b989ee41ea1141b4f7c5513d44496, type: 2}
   - {fileID: 11400000, guid: 99617a03d391fbf42b9125a0bc15dac3, type: 2}
   - {fileID: 11400000, guid: ea0938d2c0010f3449aac0552c3b9410, type: 2}
+  - {fileID: 11400000, guid: 3ffc5893c3298af4ab4400d10756364b, type: 2}

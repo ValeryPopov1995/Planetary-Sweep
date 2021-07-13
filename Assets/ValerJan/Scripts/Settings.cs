@@ -5,7 +5,7 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     public GameBalanceConfig GameBalance;
-    public PurchasesConfig Purchases, DefaultPurchases;
+    public PurchasesConfig Purchases;
     public GameSettingsConfig GameSettings;
     public static Settings Singleton;
 

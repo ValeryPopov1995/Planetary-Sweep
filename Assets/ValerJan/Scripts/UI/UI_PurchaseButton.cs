@@ -26,11 +26,11 @@ public class UI_PurchaseButton : MonoBehaviour
 
     public void UpgradeLevel()
     {
-        if (_purchase.Level < _purchase.MaxLevel)
-        {
-            _purchase.Level++;
-            updateButton();
-        }
+        if (Settings.Singleton.Purchases.Cash < _purchase.Cost) return;
+        
+        Settings.Singleton.Purchases.Cash -= _purchase.Cost;
+        _purchase.LevelUp();
+        updateButton();
     }
 
     void updateButton()

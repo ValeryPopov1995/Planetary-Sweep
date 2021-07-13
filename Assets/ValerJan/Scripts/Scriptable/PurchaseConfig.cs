@@ -11,10 +11,10 @@ public class PurchaseConfig : ScriptableObject
     [SerializeField] int maxLevel, currentLevel, defaultLevel, startCost, costProgress;
     [SerializeField] float firstValue, addValue;
 
+    public event Action UpdatePurchaseLevel; // for purchase button
+
     public int Cost { get { return startCost + costProgress * currentLevel;}}
     public float Value { get { return firstValue + addValue * currentLevel;}}
-
-    public event Action UpdatePurchaseLevel; // for UI buttons
 
     public int MaxLevel
     {
@@ -26,21 +26,18 @@ public class PurchaseConfig : ScriptableObject
         }
     }
 
-    public int Level
-    {
-        get { return currentLevel;}
-        set
-        {
-            UpdatePurchaseLevel?.Invoke();
-
-            if (value > maxLevel) currentLevel = maxLevel;
-            else if (value < defaultLevel) currentLevel = defaultLevel;
-            else currentLevel = value;
-        }
-    }
+    public int Level { get { return currentLevel;} }
 
     public void ResetLevel()
     {
-        Level = defaultLevel;
+        currentLevel = defaultLevel;
+    }
+
+    public void LevelUp()
+    {
+        if (currentLevel == maxLevel) return;
+
+        currentLevel++;
+        UpdatePurchaseLevel?.Invoke();
     }
 }

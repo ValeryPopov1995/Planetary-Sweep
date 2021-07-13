@@ -44,6 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameBalance: {fileID: 11400000, guid: fd627bf4de11edd44b47cb40af96d654, type: 2}
-  Purchases: {fileID: 11400000, guid: 75d44c9c221142e4c872e50132b734a2, type: 2}
-  DefaultPurchases: {fileID: 11400000, guid: 109a108db91c47b43911d989ac910b20, type: 2}
+  Purchases: {fileID: 11400000, guid: 109a108db91c47b43911d989ac910b20, type: 2}
   GameSettings: {fileID: 11400000, guid: fdd75797078137e4a8817857544b50e2, type: 2}
