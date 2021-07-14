@@ -8,7 +8,6 @@ public class GameSettingsConfig : ScriptableObject
     public float VolumeEffects;
     public float VolumeMusic;
     public float Sensetivity;
-    public int DropdownFPS = 1;
 
     public GameObject LoadingPlanet;
 }

@@ -7,26 +7,13 @@ public class EnemyWaveManager : MonoBehaviour
 		PlanetaryWavesConfig _waves;
 		Planet _planet;
 		Dictionary<Transform, bool> _freeSpownPoints = new Dictionary<Transform, bool>();
-		int _index;
+		int _index = 0;
 		
 		void Start()
 		{
 			EventHolder.Singleton.PlanetLoaded += initiateAfterPlanet;
 		}
 		
-		void waveComplete()
-		{
-			Debug.Log("wave # " + _index + " complete");
-
-			_index++;
-			if (_index <= _waves.Waves.Length) StartCoroutine(nextWave());
-			else
-			{
-				Debug.Log("Victory : all waves complete");
-				EventHolder.Singleton.EndGame?.Invoke(true);
-			}
-		}
-
 		void initiateAfterPlanet(Planet planet)
 		{
 			_planet = planet;
@@ -35,6 +22,19 @@ public class EnemyWaveManager : MonoBehaviour
 
 			foreach(var e in _planet.DeployPoints) _freeSpownPoints.Add(e, true); // all points are free to deploy
 			StartCoroutine(nextWave()); // TODO начало сразу, но можно подумать
+		}
+
+		void waveComplete()
+		{
+			Debug.Log("wave #" + _index + " complete");
+
+			_index++;
+			if (_index < _waves.Waves.Length) StartCoroutine(nextWave());
+			else
+			{
+				Debug.Log("Victory : all waves complete");
+				EventHolder.Singleton.EndGame?.Invoke(true);
+			}
 		}
 		
 		IEnumerator nextWave()
@@ -52,11 +52,11 @@ public class EnemyWaveManager : MonoBehaviour
 				yield return new WaitForEndOfFrame();
 			}
 
-			int limit = 1000;
+			int limIteration = 500;
 			// создание десантных кораблей по одному
-			while(spownList.Count > 0 && limit > 0)
+			while(spownList.Count > 0 && limIteration > 0)
 			{
-				limit--;
+				limIteration--;
 
 				Transform spownPos;
 				if (getFreeSpownPoint(out spownPos))
@@ -67,7 +67,7 @@ public class EnemyWaveManager : MonoBehaviour
 				}
 				yield return new WaitForSeconds(Settings.Singleton.GameBalance.SpaceshipSpownTime);
 			}
-			if (limit == 0) Debug.LogError("свободных точек десантирования кораблей не нашлось");
+			if (limIteration == 0) Debug.LogError("свободных точек десантирования кораблей не нашлось");
 		}
 
 		bool getFreeSpownPoint(out Transform freeDeployPoint)

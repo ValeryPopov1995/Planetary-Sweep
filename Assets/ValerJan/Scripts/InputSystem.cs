@@ -28,8 +28,12 @@ public class InputSystem : MonoBehaviour
         }
     }
 
+    public void ExitToMenu()
+    {
+        EventHolder.Singleton.PauseGame?.Invoke(false);
+        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+    }
     public void ExitGame() { Application.Quit(); }
-    public void ExitToMenu() { SceneManager.LoadSceneAsync(0, LoadSceneMode.Single); }
     public void PauseGame(bool pause) { EventHolder.Singleton.PauseGame?.Invoke(pause); }
 
     public void Button_Rocket() { EventHolder.Singleton.UseRocket?.Invoke(); }
