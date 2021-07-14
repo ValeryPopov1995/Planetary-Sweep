@@ -10,6 +10,6 @@ public class UseRocket : UseAmmo
     protected override void Use()
     {
         EventHolder.Singleton.UseRocket?.Invoke();
-        Instantiate(_rocketPrefab, _startPosition.position, _startPosition.rotation);
+        ObjectPool.Singleton.InstantiateFromPool(_rocketPrefab, _startPosition.position, _startPosition.rotation);
     }
 }

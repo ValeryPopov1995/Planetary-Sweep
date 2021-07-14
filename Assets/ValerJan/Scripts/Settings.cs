@@ -14,4 +14,15 @@ public class Settings : MonoBehaviour
         if (Singleton == null) Singleton = this;
         else Destroy(this);
     }
+
+    void Start()
+    {
+        EventHolder.Singleton.PauseGame += pauseGame;
+    }
+
+    void pauseGame(bool pause)
+    {
+        if (pause) Time.timeScale = 0;
+        else Time.timeScale = 1;
+    }
 }

@@ -6,13 +6,12 @@ public class EventHolder : MonoBehaviour
     public static EventHolder Singleton;
 
     public Action UseRocket, UseGranate, UseShotgun, UseJetPack, CompleteWave;
-    public Action<bool> EndGame; // true - victory
+    public Action<bool> EndGame, PauseGame; // true - victory, pause
     public Action<int> AddEnemyCount;
-    public Action<Planet> PlanetLoaded;
-
     public Action<string> Massage;
-
     public Action<float> PlanetChangeHealth, PlayerChangeHealth;
+    public Action<Planet> PlanetLoaded;
+    public Action<ParashuteBonus> AddBonusAmmo;
 
     void Awake()
     {

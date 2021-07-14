@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputSystem : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class InputSystem : MonoBehaviour
     }
 
     public void ExitGame() { Application.Quit(); }
+    public void ExitToMenu() { SceneManager.LoadSceneAsync(0, LoadSceneMode.Single); }
+    public void PauseGame(bool pause) { EventHolder.Singleton.PauseGame?.Invoke(pause); }
 
     public void Button_Rocket() { EventHolder.Singleton.UseRocket?.Invoke(); }
     public void Button_Granate() { EventHolder.Singleton.UseGranate?.Invoke(); }

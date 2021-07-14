@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d5978520cbd59c478788ce26051540c, type: 3}
-  m_Name: Player Speed
+  m_Name: Granate Damage
   m_EditorClassIdentifier: 
   ParentPurchase: {fileID: 0}
-  maxLevel: 10
-  currentLevel: 9
-  defaultLevel: 1
-  startCost: 120
-  costProgress: 100
-  firstValue: 700
-  addValue: 80
+  maxLevel: 5
+  currentLevel: 0
+  defaultLevel: 0
+  startCost: 70
+  costProgress: 60
+  firstValue: 10
+  addValue: 1
