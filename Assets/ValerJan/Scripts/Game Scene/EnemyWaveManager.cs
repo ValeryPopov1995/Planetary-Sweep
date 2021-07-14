@@ -11,7 +11,7 @@ public class EnemyWaveManager : MonoBehaviour
 		
 		void Start()
 		{
-			EventHolder.Singlton.PlanetLoaded += initiateAfterPlanet;
+			EventHolder.Singleton.PlanetLoaded += initiateAfterPlanet;
 		}
 		
 		void waveComplete()
@@ -20,14 +20,18 @@ public class EnemyWaveManager : MonoBehaviour
 
 			_index++;
 			if (_index <= _waves.Waves.Length) StartCoroutine(nextWave());
-			else EventHolder.Singlton.VictoryGame?.Invoke();
+			else
+			{
+				Debug.Log("Victory : all waves complete");
+				EventHolder.Singleton.EndGame?.Invoke(true);
+			}
 		}
 
 		void initiateAfterPlanet(Planet planet)
 		{
 			_planet = planet;
 			_waves = _planet.PlanetaryWaves;
-			EventHolder.Singlton.CompleteWave += waveComplete;
+			EventHolder.Singleton.CompleteWave += waveComplete;
 
 			foreach(var e in _planet.DeployPoints) _freeSpownPoints.Add(e, true); // all points are free to deploy
 			StartCoroutine(nextWave()); // TODO начало сразу, но можно подумать
@@ -38,7 +42,7 @@ public class EnemyWaveManager : MonoBehaviour
 			Debug.Log("wave # " + _index + " begining");
 
 			yield return new WaitForSeconds(Settings.Singleton.GameBalance.EnemyWaveCullback);
-			EventHolder.Singlton.Massage?.Invoke("Наступает новая волна!");
+			EventHolder.Singleton.Massage?.Invoke("Наступает новая волна!");
 			
 			// список всех создаваемых префабов за данную волну, все в одной куче
 			List<GameObject> spownList = new List<GameObject>();

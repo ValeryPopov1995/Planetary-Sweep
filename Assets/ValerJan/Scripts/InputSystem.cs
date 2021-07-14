@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class InputSystem : MonoBehaviour
 {
@@ -16,13 +13,30 @@ public class InputSystem : MonoBehaviour
         else Destroy(this);
     }
 
-    public void ExitGame()
+    void Start()
     {
-        Application.Quit();
+        if (EventHolder.Singleton != null) EventHolder.Singleton.EndGame += hideInput;
     }
 
-    public void Button_Rocket() { EventHolder.Singlton.UseRocket?.Invoke(); }
-    public void Button_Granate() { EventHolder.Singlton.UseGranate?.Invoke(); }
-    public void Button_Shotgun() { EventHolder.Singlton.UseShotgun?.Invoke(); }
-    public void Button_JetPack() { EventHolder.Singlton.UseJetPack?.Invoke(); }
+    void Update() // TODO delete
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Debug.Log("test init victory");
+            EventHolder.Singleton.EndGame?.Invoke(true);
+        }
+    }
+
+    public void ExitGame() { Application.Quit(); }
+
+    public void Button_Rocket() { EventHolder.Singleton.UseRocket?.Invoke(); }
+    public void Button_Granate() { EventHolder.Singleton.UseGranate?.Invoke(); }
+    public void Button_Shotgun() { EventHolder.Singleton.UseShotgun?.Invoke(); }
+    public void Button_JetPack() { EventHolder.Singleton.UseJetPack?.Invoke(); }
+
+    void hideInput(bool victory)
+    {
+        MoveStick.enabled = false;
+        EyeTrigger.enabled = false;
+    }
 }

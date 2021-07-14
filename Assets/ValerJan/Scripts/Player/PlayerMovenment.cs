@@ -17,7 +17,7 @@ public class PlayerMovenment : MonoBehaviour
 
     void Start()
     {
-        EventHolder.Singlton.UseJetPack += jetpack;
+        EventHolder.Singleton.UseJetPack += jetpack;
 
         _rigidbody = _body.GetComponent<Rigidbody>();
         _input = InputSystem.Singleton;

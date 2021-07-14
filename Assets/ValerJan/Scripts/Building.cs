@@ -15,14 +15,14 @@ public class Building : MonoBehaviour
 			_health = _config.Health;
 			tag = "Planetary Object";
 
-			EventHolder.Singlton.PlanetChangeHealth?.Invoke(_health);
+			EventHolder.Singleton.PlanetChangeHealth?.Invoke(_health);
 		}
 		
 		public void TakeDamage(float damage)
 		{
 			if (damage > _health) damage = _health; // получение урона без избытка
 			_health -= damage;
-			EventHolder.Singlton.PlanetChangeHealth?.Invoke(-damage);
+			EventHolder.Singleton.PlanetChangeHealth?.Invoke(-damage);
 
 			if (_health <= 0) die();
 			else if (!_halfDamaged && _health < _config.Health / 2)

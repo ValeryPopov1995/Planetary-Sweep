@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Planet : MonoBehaviour
@@ -11,8 +9,7 @@ public class Planet : MonoBehaviour
 
     void Start()
     {
-        EventHolder.Singlton.PlanetAddMaxHealth += addHealth;
-        EventHolder.Singlton.PlanetChangeHealth += takeDamage;
+        EventHolder.Singleton.PlanetChangeHealth += changeHealth;
 
         if (DeployPoints.Length == 0) Debug.LogError("нет точек десантирования");
         foreach(var e in DeployPoints)
@@ -21,17 +18,16 @@ public class Planet : MonoBehaviour
             e.rotation = Quaternion.FromToRotation(e.up, targetDir);
         }
 
-        EventHolder.Singlton.PlanetLoaded(this);
+        EventHolder.Singleton.PlanetLoaded(this);
     }
 
-    void addHealth(System.Object obj)
+    void changeHealth(float value)
     {
-        PlanetaryHealth += (float)obj;
-    }
-
-    void takeDamage(float damage)
-    {
-        PlanetaryHealth -= (float)damage;
-        if (PlanetaryHealth <= 0) EventHolder.Singlton.DefeatGame?.Invoke();
+        PlanetaryHealth += value;
+        if (PlanetaryHealth < 0)
+        {
+            Debug.Log("Defeat : planet damaged");
+            EventHolder.Singleton.EndGame?.Invoke(false);
+        }
     }
 }

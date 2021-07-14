@@ -11,19 +11,17 @@ public class UI_WaveNumber : MonoBehaviour
 
     void Start()
     {
-        EventHolder.Singlton.PlanetLoaded += initiateAfterPlanet;        
-        EventHolder.Singlton.CompleteWave += showCurrentWave;
+        var eh = EventHolder.Singleton;
+        eh.PlanetLoaded += initiateAfterPlanet;        
+        eh.CompleteWave += showCurrentWave;
+        eh.EndGame += endGame;
+
     }
 
     void showCurrentWave()
     {
         _waveNumber++;
-        if (_waveNumber > _waveCount)
-        {
-            EventHolder.Singlton.VictoryGame();
-            _text.text = "";
-        }
-        else _text.text = _waveNumber + "/" + _waveCount;
+        _text.text = _waveNumber + "/" + _waveCount;
     }
 
     void initiateAfterPlanet(Planet planet)
@@ -32,5 +30,10 @@ public class UI_WaveNumber : MonoBehaviour
         _text = GetComponent<Text>();
 
         _text.text = _waveNumber + "/" + _waveCount;
+    }
+
+    void endGame(bool victory)
+    {
+        _text.text = "";
     }
 }

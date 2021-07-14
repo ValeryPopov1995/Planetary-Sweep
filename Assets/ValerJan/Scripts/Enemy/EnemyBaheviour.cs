@@ -19,7 +19,7 @@ public abstract class EnemyBaheviour : MonoBehaviour
         _health = Sets.Health;
         tag = "Enemy";
 
-        EventHolder.Singlton.AddEnemyCount?.Invoke(1);
+        EventHolder.Singleton.AddEnemyCount?.Invoke(1);
 
         if (Sets.Priority == TargetPriority.player) _target = GameObject.FindWithTag("Player").transform;
         else FindBuilding();
@@ -66,7 +66,7 @@ public abstract class EnemyBaheviour : MonoBehaviour
 
     void death()
     {
-        EventHolder.Singlton.AddEnemyCount?.Invoke(-1);
+        EventHolder.Singleton.AddEnemyCount?.Invoke(-1);
         Destroy(Body.gameObject);
     }
 }

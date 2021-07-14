@@ -2011,7 +2011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41828f3564e18b4eabef855b94e8325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 11400000, guid: 5ef567ea440f40449bb9753764b57b99, type: 2}
+  _playerHealth: {fileID: 11400000, guid: 5ef567ea440f40449bb9753764b57b99, type: 2}
 --- !u!1 &685359471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,7 +2126,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.5
+    m_Strength: 0.2
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -2156,7 +2156,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3377,6 +3377,7 @@ GameObject:
   - component: {fileID: 1255041387}
   - component: {fileID: 1255041386}
   - component: {fileID: 1255041385}
+  - component: {fileID: 1255041388}
   m_Layer: 5
   m_Name: Rocket
   m_TagString: Untagged
@@ -3448,9 +3449,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1835860269}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: Button_Rocket
+      - m_Target: {fileID: 1255041388}
+        m_TargetAssemblyTypeName: UseAmmo, Assembly-CSharp
+        m_MethodName: TryUse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3498,6 +3499,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255041383}
   m_CullTransparentMesh: 1
+--- !u!114 &1255041388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255041383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a2bae9af81f2a4ebdc02170ca67bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _purchaseAmmo: {fileID: 11400000, guid: d299147510eee63468ebe00f802d0801, type: 2}
+  _rocketPrefab: {fileID: 3625737723354933935, guid: 0c1b9f25d3d8ce54fa4f02b66390dde1,
+    type: 3}
+  _startPosition: {fileID: 1749449452}
 --- !u!1 &1271200047
 GameObject:
   m_ObjectHideFlags: 0

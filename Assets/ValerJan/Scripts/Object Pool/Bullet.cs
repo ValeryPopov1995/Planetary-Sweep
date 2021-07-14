@@ -32,8 +32,8 @@ public class Bullet : PoolableObject
         //Debug.Log("bullet impacted in" + collision.gameObject.name);
         if (Sets.EnemyBullet)
         {
-            if (collision.gameObject.CompareTag("Player")) { EventHolder.Singlton.PlayerChangeHealth?.Invoke(Sets.Damage); }
-            else if (collision.gameObject.CompareTag("Planetary Object")) { EventHolder.Singlton.PlanetChangeHealth?.Invoke(Sets.Damage); }
+            if (collision.gameObject.CompareTag("Player")) { EventHolder.Singleton.PlayerChangeHealth?.Invoke(-Sets.Damage); }
+            else if (collision.gameObject.CompareTag("Planetary Object")) { EventHolder.Singleton.PlanetChangeHealth?.Invoke(-Sets.Damage); }
         }
         else
         {

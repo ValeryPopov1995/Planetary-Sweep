@@ -8,7 +8,7 @@ public class EnemyCounter : MonoBehaviour
 		
 		void Start()
 		{
-			EventHolder.Singlton.AddEnemyCount += addEnemy;
+			EventHolder.Singleton.AddEnemyCount += addEnemy;
 		}
 		
 		void addEnemy(int count)
@@ -17,7 +17,7 @@ public class EnemyCounter : MonoBehaviour
 			if (_enemyCount <= 0)
 			{
 				_enemyCount = 0;
-				EventHolder.Singlton.CompleteWave?.Invoke();
+				EventHolder.Singleton.CompleteWave?.Invoke();
 			}
 		}
 	}

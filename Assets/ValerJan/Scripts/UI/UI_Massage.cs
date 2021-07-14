@@ -13,7 +13,7 @@ public class UI_Massage : MonoBehaviour
     {
         _text = GetComponent<Text>();
         _startColor = _text.color;
-        EventHolder.Singlton.Massage += showMassage;
+        EventHolder.Singleton.Massage += showMassage;
 
         StartCoroutine(animate());
     }

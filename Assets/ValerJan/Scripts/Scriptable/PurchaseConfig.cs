@@ -14,7 +14,7 @@ public class PurchaseConfig : ScriptableObject
     public event Action UpdatePurchaseLevel; // for purchase button
 
     public int Cost { get { return startCost + costProgress * currentLevel;}}
-    public float Value { get { return firstValue + addValue * currentLevel;}}
+    public float Value { get { return firstValue + addValue * currentLevel; }}
 
     public int MaxLevel
     {
