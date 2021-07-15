@@ -13,17 +13,47 @@ public class Saver : MonoBehaviour
     void Start()
     {
         _gameSettings = Settings.Singleton.GameSettings;
-
-        loadSettingsFromFile();
+        
+        loadFromFile();
+        loadScriptableSettings();
     }
     
-    public void SaveSettingsToFile()
+    public void SaveScriptableSettings() // from ui to scriptable
     {
         if (_gameSettings.VolumeEffects != _effects.value)      _gameSettings.VolumeEffects = _effects.value;
         if (_gameSettings.VolumeMusic != _music.value)          _gameSettings.VolumeMusic = _music.value;
         if (_gameSettings.Sensetivity != _sensetivity.value)    _gameSettings.Sensetivity = _sensetivity.value;
         
-        applySettings();
+        applyToMixer();
+    }
+
+    void loadScriptableSettings() // from scriptable to ui
+    {
+        float[] sets = {_gameSettings.VolumeEffects, _gameSettings.VolumeMusic, _gameSettings.Sensetivity};
+        
+        _effects.value =        sets[0];
+        _music.value =          sets[1];
+        _sensetivity.value =    sets[2];
+
+        applyToMixer();
+    }
+
+    public void SaveToFile() // from scriptable to player prefs
+    {
+        string purs = JsonUtility.ToJson(Settings.Singleton.Purchases);
+        PlayerPrefs.SetString("purchases", purs);
+        string sets = JsonUtility.ToJson(Settings.Singleton.GameSettings);
+        PlayerPrefs.SetString("settings", sets);
+    }
+
+    public void loadFromFile() // from player prefs to scriptable
+    {
+        if (!PlayerPrefs.HasKey("purchases")) return;
+
+        string purs = PlayerPrefs.GetString("purchases");
+        Settings.Singleton.Purchases = JsonUtility.FromJson<PurchasesConfig>(purs);
+        string sets = PlayerPrefs.GetString("settings");
+        Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);
     }
 
     public void ResetProgress()
@@ -34,18 +64,7 @@ public class Saver : MonoBehaviour
         foreach(PurchaseConfig p in pur.Purchases) p.ResetLevel();
     }
 
-    void loadSettingsFromFile()
-    {
-        float[] sets = {_gameSettings.VolumeEffects, _gameSettings.VolumeMusic, _gameSettings.Sensetivity};
-        
-        _effects.value =        sets[0];
-        _music.value =          sets[1];
-        _sensetivity.value =    sets[2];
-
-        applySettings();
-    }
-
-    void applySettings()
+    void applyToMixer()
     {
         _mixer.SetFloat("effects",    _gameSettings.VolumeEffects);
         _mixer.SetFloat("music",      _gameSettings.VolumeMusic);

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d5978520cbd59c478788ce26051540c, type: 3}
-  m_Name: Rocket Splash Radius
+  m_Name: Granate Splash Radius
   m_EditorClassIdentifier: 
-  ParentPurchase: {fileID: 11400000, guid: ce5dcda19f2335544999650311de62a3, type: 2}
+  ParentPurchase: {fileID: 11400000, guid: 3b741e878424b2b41802f255124d6fd0, type: 2}
   maxLevel: 9
-  currentLevel: 1
+  currentLevel: 2
   defaultLevel: 1
-  startCost: 120
-  costProgress: 90
-  firstValue: 2
-  addValue: 0.2
+  startCost: 70
+  costProgress: 60
+  firstValue: 10
+  addValue: 1

@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class UseAmmo : MonoBehaviour
 {
     [SerializeField] PurchaseConfig _purchaseAmmo;
+    [Tooltip("if != null this script use it")]
     [SerializeField] UI_CursorAmmo _cursorAmmo;
 
     int _currentAmmo;

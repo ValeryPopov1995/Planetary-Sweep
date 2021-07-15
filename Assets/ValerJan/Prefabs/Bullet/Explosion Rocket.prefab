@@ -96,6 +96,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4231083055025540711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117749103099483189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6420bcc1bbc31ef49a94e281607714c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  _purchaseDamage: {fileID: 11400000, guid: ce5dcda19f2335544999650311de62a3, type: 2}
+  _purchaseRadius: {fileID: 11400000, guid: aa1b989ee41ea1141b4f7c5513d44496, type: 2}
 --- !u!114 &5328709073799598900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +134,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
       propertyPath: m_Name
-      value: Explosion
+      value: Explosion Rocket
       objectReference: {fileID: 0}
     - target: {fileID: 402300, guid: 079954accd64b32419ec069129c81273, type: 3}
       propertyPath: m_RootOrder

@@ -60,6 +60,12 @@ public abstract class EnemyBaheviour : MonoBehaviour
         _health -= bullet.Sets.Damage;
         if (_health <= 0) death();
     }
+    public void TakeDamage(float damage)
+    {
+        if (Sets.Blood != null) Instantiate(Sets.Blood, transform.position, transform.rotation);
+        _health -= damage;
+        if (_health <= 0) death();
+    }
 
     protected abstract void rotateToTarget();
     protected abstract void attack();

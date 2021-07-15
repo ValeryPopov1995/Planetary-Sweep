@@ -731,6 +731,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1176971108460266774}
+        m_TargetAssemblyTypeName: Saver, Assembly-CSharp
+        m_MethodName: SaveToFile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &125835858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1999,6 +2011,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365913123}
   m_CullTransparentMesh: 1
+--- !u!1 &372263792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372263793}
+  m_Layer: 0
+  m_Name: Granate start position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &372263793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372263792}
+  m_LocalRotation: {x: -0.17364825, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: -0.396, y: 0, z: 0.763}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 963194228}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
 --- !u!1 &372988110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,6 +3137,7 @@ Transform:
   m_Children:
   - {fileID: 1353484968}
   - {fileID: 2029985032}
+  - {fileID: 372263793}
   m_Father: {fileID: 681180640}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5021,6 +5064,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1176971108460266774}
+        m_TargetAssemblyTypeName: Saver, Assembly-CSharp
+        m_MethodName: SaveToFile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1448453367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5711,7 +5766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749449452}
   m_Layer: 0
-  m_Name: spown
+  m_Name: Bullet start position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6357,7 +6412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1954413458
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6748,6 +6803,7 @@ GameObject:
   - component: {fileID: 2030054517}
   - component: {fileID: 2030054516}
   - component: {fileID: 2030054515}
+  - component: {fileID: 2030054518}
   m_Layer: 5
   m_Name: Granate
   m_TagString: Untagged
@@ -6819,9 +6875,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1835860269}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: Button_Granate
+      - m_Target: {fileID: 2030054518}
+        m_TargetAssemblyTypeName: UseAmmo, Assembly-CSharp
+        m_MethodName: TryUse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6869,6 +6925,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030054513}
   m_CullTransparentMesh: 1
+--- !u!114 &2030054518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030054513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564ac91d36aa71c439c2c14e93743a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _purchaseAmmo: {fileID: 11400000, guid: 8a4a90fa04b7f2745b77fb384e04d208, type: 2}
+  _cursorAmmo: {fileID: 110908425}
+  _granatePrefab: {fileID: 5707286500065645393, guid: 19aa7a455dcf3bc4bb8b2a1a03b95d46,
+    type: 3}
+  _startPosition: {fileID: 372263793}
 --- !u!1 &2104698464
 GameObject:
   m_ObjectHideFlags: 0
