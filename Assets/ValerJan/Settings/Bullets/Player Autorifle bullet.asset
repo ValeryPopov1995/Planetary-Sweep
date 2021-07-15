@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player Autorifle bullet
   m_EditorClassIdentifier: 
   EnemyBullet: 0
-  Speed: 10
+  Speed: 20
   Damage: 10
   TimerToDestroy: 2
