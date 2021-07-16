@@ -2343,7 +2343,34 @@ PrefabInstance:
     - target: {fileID: 5647783903681699592, guid: e8050493cd812934fae5e17462af024f,
         type: 3}
       propertyPath: m_Name
-      value: Level Card (1)
+      value: 2 grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[0].Purchase
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a9550b7f6c131a48ab56ccb7fc0fe70,
+        type: 2}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[0].ReqLevel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[0].purchase
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a9550b7f6c131a48ab56ccb7fc0fe70,
+        type: 2}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[0].reqLevel
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8903817056690486456, guid: e8050493cd812934fae5e17462af024f,
         type: 3}
@@ -4058,7 +4085,56 @@ PrefabInstance:
     - target: {fileID: 5647783903681699592, guid: e8050493cd812934fae5e17462af024f,
         type: 3}
       propertyPath: m_Name
-      value: Level Card (2)
+      value: 3 factory
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[0].Purchase
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a9550b7f6c131a48ab56ccb7fc0fe70,
+        type: 2}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[0].ReqLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[0].purchase
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a9550b7f6c131a48ab56ccb7fc0fe70,
+        type: 2}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[0].reqLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[1].Purchase
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b741e878424b2b41802f255124d6fd0,
+        type: 2}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[1].ReqLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[1].purchase
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b741e878424b2b41802f255124d6fd0,
+        type: 2}
+    - target: {fileID: 7153652147147915645, guid: e8050493cd812934fae5e17462af024f,
+        type: 3}
+      propertyPath: _requirements.Array.data[1].reqLevel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8903817056690486456, guid: e8050493cd812934fae5e17462af024f,
         type: 3}
@@ -4484,7 +4560,7 @@ PrefabInstance:
     - target: {fileID: 5647783903681699592, guid: e8050493cd812934fae5e17462af024f,
         type: 3}
       propertyPath: m_Name
-      value: Level Card
+      value: 1 white
       objectReference: {fileID: 0}
     - target: {fileID: 8903817056690486456, guid: e8050493cd812934fae5e17462af024f,
         type: 3}

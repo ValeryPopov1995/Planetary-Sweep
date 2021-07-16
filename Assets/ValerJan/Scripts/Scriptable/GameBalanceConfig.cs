@@ -10,7 +10,6 @@ public class GameBalanceConfig : ScriptableObject
     public float Gravity = 1000, EnemyWaveCullback = 5,
     SpaceshipSpownTime = 5, TimerDestroySpaceships = 5,
     AutoFireAngle = 9, AutoFireRange = 15,
-    DefeatAwardCoeficient = .5f;
-
-    public GameObject AutoriflePrefab;
+    DefeatAwardCoeficient = .5f,
+    BonuseSecondRate = 10, BonusRandomAdditive = 10;
 }

@@ -29,7 +29,7 @@ public class EnemyWaveManager : MonoBehaviour
 
 		void waveComplete()
 		{
-			Debug.Log("wave #" + _index + " complete");
+			Debug.Log("wave " + _index + " complete");
 
 			_index++;
 			if (_index < _waves.Waves.Length) StartCoroutine(nextWave());
@@ -43,6 +43,7 @@ public class EnemyWaveManager : MonoBehaviour
 		void changeCount(int count)
 		{
 			_enemyCount += count;
+
 			if (_canCopmleteWave && _enemyCount <= 0)
 			{
 				_enemyCount = 0;

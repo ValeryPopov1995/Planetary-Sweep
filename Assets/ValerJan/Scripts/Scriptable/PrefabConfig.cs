@@ -6,5 +6,7 @@ using System;
 [CreateAssetMenu(fileName = "Prefabs config", menuName = "Scriptable/Prefabs config", order = 1)]
 	public class PrefabConfig : ScriptableObject
 	{
-		public GameObject ruins, boom;
+		public GameObject Ruins, Boom,
+		AutoriflePrefab;
+		public GameObject[] Bonuses;
 	}

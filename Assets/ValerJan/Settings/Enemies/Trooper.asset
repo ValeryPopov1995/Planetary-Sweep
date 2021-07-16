@@ -19,5 +19,6 @@ MonoBehaviour:
   SeeRange: 15
   AttackRange: 9
   AttackCullback: 1
+  Award: 10
   Bullet: {fileID: 3625737723354933935, guid: 6d0363619f1cca54db3bb50eff72e60f, type: 3}
   Blood: {fileID: 0}

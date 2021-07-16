@@ -46,3 +46,4 @@ MonoBehaviour:
   GameBalance: {fileID: 11400000, guid: fd627bf4de11edd44b47cb40af96d654, type: 2}
   Purchases: {fileID: 11400000, guid: 109a108db91c47b43911d989ac910b20, type: 2}
   GameSettings: {fileID: 11400000, guid: fdd75797078137e4a8817857544b50e2, type: 2}
+  Prefabs: {fileID: 11400000, guid: b2103bb8616721e4a9f7485ee5827557, type: 2}

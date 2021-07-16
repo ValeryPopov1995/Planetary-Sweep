@@ -7,15 +7,17 @@ public abstract class EnemyBaheviour : MonoBehaviour
     public enum TargetPriority {player, building}
 
     public EnemyConfig Sets;
-    public Transform Body, BulletSpownPoint;
+    [SerializeField] Rigidbody _rigid;
+    [SerializeField] GravityBody _gravityBody;
+    [SerializeField] protected Transform _bulletSpownPoint;
 
-    Rigidbody _rigidbody;
+    protected Transform _body;
     protected float _health, _lastAttackTime;
     protected Transform _target;
 
     protected void Start()
     {
-        _rigidbody = Body.GetComponent<Rigidbody>();
+        _body = _rigid.transform;
         _health = Sets.Health;
         tag = "Enemy";
 
@@ -27,21 +29,22 @@ public abstract class EnemyBaheviour : MonoBehaviour
 
     void FixedUpdate() // logic
     {
+        _gravityBody.RotateToPlanet();
+        Vector3 moveVector = Vector3.zero;
         if (_target != null)
         {
             rotateToTarget();
-            float dis = Vector3.Distance(Body.position, _target.position);
+            float dis = Vector3.Distance(_body.position, _target.position);
             if (dis < Sets.AttackRange)
-            {
                 attack();
-                _rigidbody.velocity = Vector3.zero;
-            }
-            else _rigidbody.velocity = Body.forward * Sets.Speed;
+            else moveVector = _body.forward * Sets.Speed;
         }
         else FindBuilding();
 
-        _rigidbody.velocity -= Body.up * Settings.Singleton.GameBalance.Gravity;
-        _rigidbody.velocity *= Time.fixedDeltaTime;
+        moveVector -= _body.up * Settings.Singleton.GameBalance.Gravity;
+        moveVector *= Time.fixedDeltaTime;
+
+        _rigid.velocity = moveVector;
     }
 
     public void SetTarget(Transform target) // for enemy scanner
@@ -72,8 +75,8 @@ public abstract class EnemyBaheviour : MonoBehaviour
 
     void death()
     {
-        EventHolder.Singleton.ChangeEnemyCount?.Invoke(-1);
         EventHolder.Singleton.AwardForKill?.Invoke(Sets.Award);
-        Destroy(Body.gameObject);
+        EventHolder.Singleton.ChangeEnemyCount?.Invoke(-1);
+        Destroy(_body.gameObject);
     }
 }

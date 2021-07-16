@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1756078500408635602}
   - component: {fileID: 1756078500408635613}
   - component: {fileID: 1756078500408635612}
-  - component: {fileID: 1756078500408635615}
-  - component: {fileID: 1756078500408635614}
   - component: {fileID: 1756078500408635609}
+  - component: {fileID: 8621491947240717460}
+  - component: {fileID: 3515766842780447560}
   m_Layer: 3
   m_Name: Trooper
   m_TagString: Enemy
@@ -88,7 +88,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1756078500408635615
+--- !u!114 &1756078500408635609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756078500408635608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4dfe022aed363341b70ef99c6b003ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &8621491947240717460
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756078500408635608}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &3515766842780447560
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,34 +130,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1756078500408635614
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756078500408635608}
-  serializedVersion: 2
-  m_Mass: 50
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &1756078500408635609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756078500408635608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4dfe022aed363341b70ef99c6b003ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1756078501171175482
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,8 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sets: {fileID: 11400000, guid: 10416d87cdcef11429efbbb5d05e1581, type: 2}
-  Body: {fileID: 1756078500408635602}
-  BulletSpownPoint: {fileID: 6443412331627034955}
+  _rigid: {fileID: 8621491947240717460}
+  _gravityBody: {fileID: 1756078500408635609}
+  _bulletSpownPoint: {fileID: 6443412331627034955}
 --- !u!1 &1756078501261956809
 GameObject:
   m_ObjectHideFlags: 0

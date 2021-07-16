@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc7ef9eb161bf4f8bc265a237fe22f, type: 3}
   m_Name: Prefabs config
   m_EditorClassIdentifier: 
-  ruins: {fileID: 6757655431281430401, guid: 036bdbbb8147d3748b8a20dcfdd7de9c, type: 3}
-  boom: {fileID: 9112319451488956408, guid: bab1a909db7b78c4aa59606c181a01b1, type: 3}
+  Ruins: {fileID: 6757655431281430401, guid: 036bdbbb8147d3748b8a20dcfdd7de9c, type: 3}
+  Boom: {fileID: 9112319451488956408, guid: bab1a909db7b78c4aa59606c181a01b1, type: 3}
+  AutoriflePrefab: {fileID: 3625737723354933935, guid: 3d5db4b5d3d9858468867eefc767f1de,
+    type: 3}
+  Bonuses:
+  - {fileID: 7379815909602824653, guid: 7b3891f693b8c794aa7f92b1067d8903, type: 3}
+  - {fileID: 7379815909602824653, guid: 08574535a3110a2458e3edf0ede076af, type: 3}
+  - {fileID: 7379815909602824653, guid: ea9efd1df4dcd3a4c82ce6663bdc5f3d, type: 3}

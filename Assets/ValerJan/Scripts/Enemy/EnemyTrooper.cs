@@ -6,12 +6,13 @@ using UnityEngine;
 /// стреляет пуялми из бассейна
 public class EnemyTrooper : EnemyBaheviour
 {
+
     protected override void rotateToTarget()
     {
-        Vector3 toTarget = (_target.position - Body.position).normalized;
+        Vector3 toTarget = (_target.position - _body.position).normalized;
         //Body.rotation = Quaternion.LookRotation(toTarget);
-        var look = Quaternion.LookRotation(toTarget, Body.up);
-        Body.rotation = new Quaternion(Body.rotation.x, look.y, Body.rotation.z, look.w);
+        var look = Quaternion.LookRotation(toTarget, _body.up);
+        _body.rotation = new Quaternion(_body.rotation.x, look.y, _body.rotation.z, look.w);
     }
 
     protected override void attack()
@@ -19,7 +20,8 @@ public class EnemyTrooper : EnemyBaheviour
         if (Time.time < _lastAttackTime + Sets.AttackCullback) return;
 
         _lastAttackTime = Time.time;
-        ObjectPool.Singleton.InstantiateFromPool(Sets.Bullet, BulletSpownPoint.position, BulletSpownPoint.rotation);
+        _bulletSpownPoint.LookAt(_target);
+        ObjectPool.Singleton.InstantiateFromPool(Sets.Bullet, _bulletSpownPoint.position, _bulletSpownPoint.rotation);
         //Debug.Log("trooper attack");
     }
 }

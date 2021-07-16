@@ -38,7 +38,7 @@ public class ObjectPool : MonoBehaviour
 		{
 			var o = Instantiate(prefab, position, rotation);
             o.transform.parent = transform;
-			Debug.Log("в ObjectPool отсутствует свободный " + prefab + ", создан новый");
+			//Debug.Log("в ObjectPool отсутствует свободный " + prefab + ", создан новый");
 		}
 	}
 	

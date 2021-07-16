@@ -43,6 +43,7 @@ public class Saver : MonoBehaviour
         PlayerPrefs.SetString("purchases", purs);
         string sets = JsonUtility.ToJson(Settings.Singleton.GameSettings);
         PlayerPrefs.SetString("settings", sets);
+        PlayerPrefs.Save();
 
         Debug.Log("saved json sets : " + sets);
     }
@@ -51,13 +52,11 @@ public class Saver : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("purchases"))
         {
-            PlayerPrefs.DeleteAll();
             ResetProgress();
             return;
         }
 
         string purs = PlayerPrefs.GetString("purchases");
-        //Settings.Singleton.Purchases = JsonUtility.FromJson<PurchasesConfig>(purs);
         JsonUtility.FromJsonOverwrite(purs, Settings.Singleton.Purchases);
         string sets = PlayerPrefs.GetString("settings");
         //Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);

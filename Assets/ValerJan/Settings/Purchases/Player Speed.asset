@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParentPurchase: {fileID: 0}
   maxLevel: 10
-  currentLevel: 9
+  currentLevel: 10
   defaultLevel: 1
   startCost: 120
   costProgress: 100

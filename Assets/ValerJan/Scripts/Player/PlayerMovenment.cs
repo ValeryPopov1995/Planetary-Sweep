@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovenment : MonoBehaviour
 {
     [SerializeField] Transform _body;
+    [SerializeField] GravityBody _gravityBody;
     [SerializeField] PurchaseConfig _playerSpeed, _jetpackForce, _jetpackCulldown;
 
     int _jetpackPositiveGravityFade = 10;
@@ -31,6 +32,7 @@ public class PlayerMovenment : MonoBehaviour
     void Update()
     {
         #region  rotate
+        _gravityBody.RotateToPlanet();
         Vector2 mouseDelta = _input.EyeTrigger.GetDelta();
         _body.Rotate(Vector3.up * mouseDelta.x * _sensetivity * Time.deltaTime);
         _cameraVerticalAngle -= mouseDelta.y * _sensetivity * Time.deltaTime;

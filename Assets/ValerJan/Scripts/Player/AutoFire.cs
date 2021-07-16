@@ -30,6 +30,6 @@ public class AutoFire : MonoBehaviour
     void fire()
     {
         _lastFireTime = Time.time;
-        ObjectPool.Singleton.InstantiateFromPool(_settings.GameBalance.AutoriflePrefab, _spownPoint.position, _spownPoint.rotation);
+        ObjectPool.Singleton.InstantiateFromPool(_settings.Prefabs.AutoriflePrefab, _spownPoint.position, _spownPoint.rotation);
     }
 }

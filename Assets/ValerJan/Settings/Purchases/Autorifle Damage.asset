@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5978520cbd59c478788ce26051540c, type: 3}
   m_Name: Autorifle Damage
   m_EditorClassIdentifier: 
+  ParentPurchase: {fileID: 0}
   maxLevel: 10
-  currentLevel: 1
+  currentLevel: 10
   defaultLevel: 1
   startCost: 150
   costProgress: 100

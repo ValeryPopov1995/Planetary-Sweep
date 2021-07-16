@@ -7,6 +7,7 @@ public class Settings : MonoBehaviour
     public GameBalanceConfig GameBalance;
     public PurchasesConfig Purchases;
     public GameSettingsConfig GameSettings;
+    public PrefabConfig Prefabs;
     public static Settings Singleton;
 
     void Awake()

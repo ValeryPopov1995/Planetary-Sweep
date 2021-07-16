@@ -9,11 +9,13 @@ public class Building : MonoBehaviour
 		
 		float _health;
 		bool _halfDamaged = false;
+		PrefabConfig _prefabs;
 		
 		void Start()
 		{
 			_health = _config.Health;
 			tag = "Planetary Object";
+			_prefabs = Settings.Singleton.Prefabs;
 
 			EventHolder.Singleton.PlanetChangeHealth?.Invoke(_health);
 		}
@@ -28,14 +30,14 @@ public class Building : MonoBehaviour
 			else if (!_halfDamaged && _health < _config.Health / 2)
 			{
 				_halfDamaged = true;
-				Instantiate(PrefabFactory.FactorySinglton.PrefabsConfig.boom, transform.position, transform.rotation);
+				Instantiate(_prefabs.Boom, transform.position, transform.rotation);
 			}
 		}
 		
 		void die()
 		{
-			Instantiate(PrefabFactory.FactorySinglton.PrefabsConfig.boom, transform.position, transform.rotation);
-			Instantiate(PrefabFactory.FactorySinglton.PrefabsConfig.ruins, transform.position, transform.rotation);
+			Instantiate(_prefabs.Boom, transform.position, transform.rotation);
+			Instantiate(_prefabs.Ruins, transform.position, transform.rotation);
 			Destroy(gameObject);
 		}
 	}
