@@ -18,6 +18,7 @@ public class UI_DoubleAward : MonoBehaviour
     public void ShowAds()
     {
         Advertisement.Show();
+        gameObject.SetActive(false);
     }
 
     IEnumerator initAds()

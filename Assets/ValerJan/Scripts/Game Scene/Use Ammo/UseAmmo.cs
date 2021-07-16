@@ -12,7 +12,11 @@ public abstract class UseAmmo : MonoBehaviour
     {
         EventHolder.Singleton.AddBonusAmmo += addAmmo;
 
-        if (_purchaseAmmo.ParentPurchase != null && _purchaseAmmo.ParentPurchase.Level == 0) Destroy(gameObject);
+        if (_purchaseAmmo.ParentPurchase != null && _purchaseAmmo.ParentPurchase.Level == 0)
+        {
+            if (_cursorAmmo != null) _cursorAmmo.gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
         _currentAmmo = (int)_purchaseAmmo.Value; // Cast from outside of Hogvarts
     }
 

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class UI_EndGameCanvas : MonoBehaviour
 {
-    void Awake() // TODO check
+    void Start()
     {
         EventHolder.Singleton.EndGame += endGame;
-        //gameObject.SetActive(false);
+        Debug.Log("EndGame canvas subscribed to EndGame Action<bool>");
+        gameObject.SetActive(false);
     }
 
     void endGame(bool victory)

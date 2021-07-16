@@ -15,7 +15,6 @@ public class Saver : MonoBehaviour
         _gameSettings = Settings.Singleton.GameSettings;
         
         loadFromFile();
-        loadScriptableSettings();
     }
     
     public void SaveScriptableSettings() // from ui to scriptable
@@ -44,16 +43,28 @@ public class Saver : MonoBehaviour
         PlayerPrefs.SetString("purchases", purs);
         string sets = JsonUtility.ToJson(Settings.Singleton.GameSettings);
         PlayerPrefs.SetString("settings", sets);
+
+        Debug.Log("saved json sets : " + sets);
     }
 
     public void loadFromFile() // from player prefs to scriptable
     {
-        if (!PlayerPrefs.HasKey("purchases")) return;
+        if (!PlayerPrefs.HasKey("purchases"))
+        {
+            PlayerPrefs.DeleteAll();
+            ResetProgress();
+            return;
+        }
 
         string purs = PlayerPrefs.GetString("purchases");
-        Settings.Singleton.Purchases = JsonUtility.FromJson<PurchasesConfig>(purs);
+        //Settings.Singleton.Purchases = JsonUtility.FromJson<PurchasesConfig>(purs);
+        JsonUtility.FromJsonOverwrite(purs, Settings.Singleton.Purchases);
         string sets = PlayerPrefs.GetString("settings");
-        Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);
+        //Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);
+        JsonUtility.FromJsonOverwrite(sets, Settings.Singleton.GameSettings);
+
+        Debug.Log("load json sets : " + sets);
+        loadScriptableSettings();
     }
 
     public void ResetProgress()
@@ -62,6 +73,7 @@ public class Saver : MonoBehaviour
 
         pur.Cash = 0;
         foreach(PurchaseConfig p in pur.Purchases) p.ResetLevel();
+        SaveToFile();
     }
 
     void applyToMixer()

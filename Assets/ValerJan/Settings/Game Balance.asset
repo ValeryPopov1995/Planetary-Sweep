@@ -16,7 +16,8 @@ MonoBehaviour:
   EnemyWaveCullback: 5
   SpaceshipSpownTime: 5
   TimerDestroySpaceships: 5
-  AutoFireAngle: 9
+  AutoFireAngle: 15
   AutoFireRange: 15
+  DefeatAwardCoeficient: 0.5
   AutoriflePrefab: {fileID: 3625737723354933935, guid: 3d5db4b5d3d9858468867eefc767f1de,
     type: 3}

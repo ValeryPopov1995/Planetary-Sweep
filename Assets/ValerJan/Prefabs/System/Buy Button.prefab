@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 14.5218, y: 14.5218}
+  m_SizeDelta: {x: 9, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1128792593371294052
 CanvasRenderer:
@@ -278,7 +278,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 50, y: 50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1128792594665863373
 CanvasRenderer:
@@ -387,9 +387,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _purchase: {fileID: 0}
-  _element: {fileID: 1128792593371294054}
+  _elementPrefab: {fileID: 1128792593371294054}
   _elementGroup: {fileID: 1128792593420053899}
   _costText: {fileID: 3442432226328173154}
+  _onColor: {r: 0.92658776, g: 1, b: 0.7028302, a: 1}
+  _offColor: {r: 1, g: 0, b: 0, a: 0.19607843}
+  elements: []
 --- !u!1 &7799294093631198710
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +428,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6584534464404575882
 CanvasRenderer:
@@ -468,4 +471,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 150
+  m_Text: 9999

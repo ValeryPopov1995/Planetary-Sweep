@@ -5,9 +5,9 @@ public class EventHolder : MonoBehaviour
 {
     public static EventHolder Singleton;
 
-    public Action UseRocket, UseGranate, UseShotgun, UseJetPack, CompleteWave, AdvertisementsShowed;
+    public Action UseRocket, UseGranate, UseShotgun, UseJetPack, CompleteWave;
     public Action<bool> EndGame, PauseGame; // true - victory, pause
-    public Action<int> AddEnemyCount;
+    public Action<int> ChangeEnemyCount, AwardForKill;
     public Action<string> Massage;
     public Action<float> PlanetChangeHealth, PlayerChangeHealth;
     public Action<Planet> PlanetLoaded;

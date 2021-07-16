@@ -7,7 +7,8 @@ public class EnemyWaveManager : MonoBehaviour
 		PlanetaryWavesConfig _waves;
 		Planet _planet;
 		Dictionary<Transform, bool> _freeSpownPoints = new Dictionary<Transform, bool>();
-		int _index = 0;
+		int _index = 0, _enemyCount;
+		bool _canCopmleteWave = false; // exclude fast victory
 		
 		void Start()
 		{
@@ -18,7 +19,9 @@ public class EnemyWaveManager : MonoBehaviour
 		{
 			_planet = planet;
 			_waves = _planet.PlanetaryWaves;
+			
 			EventHolder.Singleton.CompleteWave += waveComplete;
+			EventHolder.Singleton.ChangeEnemyCount += changeCount;
 
 			foreach(var e in _planet.DeployPoints) _freeSpownPoints.Add(e, true); // all points are free to deploy
 			StartCoroutine(nextWave()); // TODO начало сразу, но можно подумать
@@ -37,11 +40,22 @@ public class EnemyWaveManager : MonoBehaviour
 			}
 		}
 		
+		void changeCount(int count)
+		{
+			_enemyCount += count;
+			if (_canCopmleteWave && _enemyCount <= 0)
+			{
+				_enemyCount = 0;
+				EventHolder.Singleton.CompleteWave?.Invoke();
+			}
+		}
+
 		IEnumerator nextWave()
 		{
-			Debug.Log("wave # " + _index + " begining");
+			_canCopmleteWave = false;
 
 			yield return new WaitForSeconds(Settings.Singleton.GameBalance.EnemyWaveCullback);
+			Debug.Log("wave # " + _index + " begining");
 			EventHolder.Singleton.Massage?.Invoke("Наступает новая волна!");
 			
 			// список всех создаваемых префабов за данную волну, все в одной куче
@@ -68,6 +82,8 @@ public class EnemyWaveManager : MonoBehaviour
 				yield return new WaitForSeconds(Settings.Singleton.GameBalance.SpaceshipSpownTime);
 			}
 			if (limIteration == 0) Debug.LogError("свободных точек десантирования кораблей не нашлось");
+			
+			_canCopmleteWave = true;
 		}
 
 		bool getFreeSpownPoint(out Transform freeDeployPoint)

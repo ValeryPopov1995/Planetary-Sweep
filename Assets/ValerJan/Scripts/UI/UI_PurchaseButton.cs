@@ -8,22 +8,34 @@ using UnityEngine.UI;
 public class UI_PurchaseButton : MonoBehaviour
 {
     [SerializeField] PurchaseConfig _purchase;
-    [SerializeField] LayoutElement _element;
+    [SerializeField] LayoutElement _elementPrefab;
     [SerializeField] LayoutGroup _elementGroup;
     [SerializeField] Text _costText;
+    [SerializeField] Color _onColor, _offColor;
+
+    [SerializeField] Image[] elements;
 
     Button _button;
 
-    void Start()
+    void Awake()
     {
         if (_purchase.ParentPurchase != null) _purchase.ParentPurchase.UpdatePurchaseLevel += updateButton;
+        _elementPrefab.gameObject.SetActive(false);
 
         _button = GetComponent<Button>();
 
-        for (int i = 1; i < _purchase.MaxLevel; i++) Instantiate(_element.gameObject, _elementGroup.transform);
+        elements = new Image[_purchase.MaxLevel];
+        for (int i = 0; i < _purchase.MaxLevel; i++)
+        {
+            var e = Instantiate(_elementPrefab.gameObject, _elementGroup.transform);
+            e.SetActive(true);
+            elements[i] = e.GetComponent<Image>();
+        }
 
         updateButton();
     }
+
+    void OnEnable() => updateButton();
 
     public void UpgradeLevel()
     {
@@ -31,7 +43,6 @@ public class UI_PurchaseButton : MonoBehaviour
         
         Settings.Singleton.Purchases.Cash -= _purchase.Cost;
         _purchase.LevelUp();
-        _costText.text = _purchase.Cost.ToString();
         updateButton();
     }
 
@@ -44,6 +55,15 @@ public class UI_PurchaseButton : MonoBehaviour
         else if (_purchase.Level == _purchase.MaxLevel) interactable = false;
         else interactable = true;
 
+        for (int i = 0; i < elements.Length; i++)
+        {
+            if (i < _purchase.Level)
+                elements[i].color = _onColor;
+            else
+                elements[i].color = _offColor;
+        }
+
+        _costText.text = _purchase.Cost.ToString();
         _costText.gameObject.SetActive(interactable);
         _button.interactable = interactable;
     }

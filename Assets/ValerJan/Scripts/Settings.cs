@@ -17,7 +17,7 @@ public class Settings : MonoBehaviour
 
     void Start()
     {
-        EventHolder.Singleton.PauseGame += pauseGame;
+        if (EventHolder.Singleton != null) EventHolder.Singleton.PauseGame += pauseGame;
         Application.targetFrameRate = 60;
     }
 
