@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -45,7 +43,7 @@ public class Saver : MonoBehaviour
         PlayerPrefs.SetString("settings", sets);
         PlayerPrefs.Save();
 
-        Debug.Log("saved json sets : " + sets);
+        Debug.Log("saved json purs : " + purs);
     }
 
     public void loadFromFile() // from player prefs to scriptable
@@ -59,20 +57,20 @@ public class Saver : MonoBehaviour
         string purs = PlayerPrefs.GetString("purchases");
         JsonUtility.FromJsonOverwrite(purs, Settings.Singleton.Purchases);
         string sets = PlayerPrefs.GetString("settings");
-        //Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);
         JsonUtility.FromJsonOverwrite(sets, Settings.Singleton.GameSettings);
 
-        Debug.Log("load json sets : " + sets);
+        Debug.Log("load json purs : " + purs);
         loadScriptableSettings();
     }
 
     public void ResetProgress()
     {
+        PlayerPrefs.DeleteAll();
         var pur = Settings.Singleton.Purchases;
 
         pur.Cash = 0;
         foreach(PurchaseConfig p in pur.Purchases) p.ResetLevel();
-        SaveToFile();
+        Debug.Log("progress reset");
     }
 
     void applyToMixer()

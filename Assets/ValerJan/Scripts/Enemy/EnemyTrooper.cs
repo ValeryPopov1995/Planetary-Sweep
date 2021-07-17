@@ -13,6 +13,7 @@ public class EnemyTrooper : EnemyBaheviour
         //Body.rotation = Quaternion.LookRotation(toTarget);
         var look = Quaternion.LookRotation(toTarget, _body.up);
         _body.rotation = new Quaternion(_body.rotation.x, look.y, _body.rotation.z, look.w);
+        _gravityBody.RotateToPlanet();
     }
 
     protected override void attack()

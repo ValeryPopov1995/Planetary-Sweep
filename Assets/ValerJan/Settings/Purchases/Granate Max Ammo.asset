@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5978520cbd59c478788ce26051540c, type: 3}
   m_Name: Granate Max Ammo
   m_EditorClassIdentifier: 
-  ParentPurchase: {fileID: 11400000, guid: ea0938d2c0010f3449aac0552c3b9410, type: 2}
+  ParentPurchase: {fileID: 11400000, guid: 3b741e878424b2b41802f255124d6fd0, type: 2}
   maxLevel: 5
   currentLevel: 1
   defaultLevel: 1

@@ -8,7 +8,7 @@ public abstract class EnemyBaheviour : MonoBehaviour
 
     public EnemyConfig Sets;
     [SerializeField] Rigidbody _rigid;
-    [SerializeField] GravityBody _gravityBody;
+    [SerializeField] protected GravityBody _gravityBody;
     [SerializeField] protected Transform _bulletSpownPoint;
 
     protected Transform _body;
@@ -29,7 +29,6 @@ public abstract class EnemyBaheviour : MonoBehaviour
 
     void FixedUpdate() // logic
     {
-        _gravityBody.RotateToPlanet();
         Vector3 moveVector = Vector3.zero;
         if (_target != null)
         {

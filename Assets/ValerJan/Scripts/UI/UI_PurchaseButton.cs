@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +10,7 @@ public class UI_PurchaseButton : MonoBehaviour
     [SerializeField] Text _costText;
     [SerializeField] Color _onColor, _offColor;
 
-    [SerializeField] Image[] elements;
+    Image[] elements;
 
     Button _button;
 
