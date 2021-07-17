@@ -68,8 +68,10 @@ public class Saver : MonoBehaviour
         PlayerPrefs.DeleteAll();
         var pur = Settings.Singleton.Purchases;
 
-        pur.Cash = 0;
+        pur.Cash = 10000;
         foreach(PurchaseConfig p in pur.Purchases) p.ResetLevel();
+        SaveToFile();
+
         Debug.Log("progress reset");
     }
 

@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class Award : MonoBehaviour
 {
-    [SerializeField] Text _text;
+    [SerializeField] Text _textAwardKill, _textTimeBonus, _textDefeatCoef;
     [SerializeField] int _secondsAward = 300; // every second of game decriese timeBonus (see getAward method)
-    int _award;
+    int _awardKill, _awardTimeBonus;
 
     float _startLevelTime;
 
@@ -20,15 +20,15 @@ public class Award : MonoBehaviour
 
     public void AdvertisementAward()
     {
-        Settings.Singleton.Purchases.Cash += _award;
-        showAward();
+        Settings.Singleton.Purchases.Cash += _awardKill;
+        showAward(true); // TODO
     }
 
     void addAward(int value)
     {
         if (value <= 0) Debug.LogError("award add value <= 0");
 
-        _award += value;
+        _awardKill += value;
     }
 
     void getAward(bool victory) // TODO award for PlanetHealth
@@ -37,17 +37,19 @@ public class Award : MonoBehaviour
 
         int gameTime = (int)(Time.time - _startLevelTime);
         int timeBonus = _secondsAward - gameTime;
-        if (timeBonus > 0) _award += timeBonus;
+        if (timeBonus > 0) _awardTimeBonus = timeBonus;
 
-        if (!victory) _award = (int)(_award * sets.GameBalance.DefeatAwardCoeficient);
-        sets.Purchases.Cash += _award;
-        showAward();
+        if (!victory) _awardKill = (int)(_awardKill * sets.GameBalance.DefeatAwardCoeficient);
+        sets.Purchases.Cash += _awardKill;
+        
+        showAward(victory);
     }
 
-    void showAward()
+    void showAward(bool victory)
     {
-        if (_text == null) return;
-
-        _text.text = "+ " +_award;
+        _textAwardKill.text = "+ " + _awardKill;
+        _textTimeBonus.text = "+ " + _awardTimeBonus;
+        if (victory) _textDefeatCoef.text = "победа!";
+        else _textDefeatCoef.text = "/2 - поражение";
     }
 }
