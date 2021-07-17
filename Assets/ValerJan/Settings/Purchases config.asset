@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f26acbec57ce943ae251c47199a9dc, type: 3}
   m_Name: Purchases config
   m_EditorClassIdentifier: 
-  Cash: 0
   Purchases:
   - {fileID: 11400000, guid: 2e6129be088e42140b45a9e737b1c494, type: 2}
   - {fileID: 11400000, guid: 7a9550b7f6c131a48ab56ccb7fc0fe70, type: 2}

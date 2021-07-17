@@ -3,6 +3,8 @@ using UnityEngine;
 public class Planet : MonoBehaviour
 {
     [HideInInspector] public float PlanetaryHealth { get; private set; }
+
+    public int SecondsAward;
     public PlanetaryWavesConfig PlanetaryWaves;
     public Transform StartPlayerPosition;
     public Transform[] DeployPoints;

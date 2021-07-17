@@ -5,7 +5,7 @@ public class BonusSpowner : MonoBehaviour
 {
     GameBalanceConfig _balance;
     GameObject[] _bonuses;
-    int _altitude = 100;
+    [SerializeField] int _altitude = 100;
 
     void Start()
     {
@@ -24,6 +24,7 @@ public class BonusSpowner : MonoBehaviour
             Instantiate(
                 _bonuses[Random.Range(0, _bonuses.Length)],
                 dropPos, Quaternion.identity);
+            Debug.Log("bonus spowned");
             
             yield return new WaitForSeconds(
                 _balance.BonuseSecondRate +

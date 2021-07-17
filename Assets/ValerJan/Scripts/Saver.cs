@@ -11,8 +11,7 @@ public class Saver : MonoBehaviour
     void Start()
     {
         _gameSettings = Settings.Singleton.GameSettings;
-        
-        loadFromFile();
+        if (PlayerPrefs.HasKey("purchases")) loadFromFile();
     }
     
     public void SaveScriptableSettings() // from ui to scriptable
@@ -48,12 +47,6 @@ public class Saver : MonoBehaviour
 
     public void loadFromFile() // from player prefs to scriptable
     {
-        if (!PlayerPrefs.HasKey("purchases"))
-        {
-            ResetProgress();
-            return;
-        }
-
         string purs = PlayerPrefs.GetString("purchases");
         JsonUtility.FromJsonOverwrite(purs, Settings.Singleton.Purchases);
         string sets = PlayerPrefs.GetString("settings");

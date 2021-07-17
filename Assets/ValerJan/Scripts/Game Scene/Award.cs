@@ -3,31 +3,35 @@ using UnityEngine.UI;
 
 public class Award : MonoBehaviour
 {
-    [SerializeField] Text _textAwardKill, _textTimeBonus, _textDefeatCoef;
-    [SerializeField] int _secondsAward = 300; // every second of game decriese timeBonus (see getAward method)
-    int _awardKill, _awardTimeBonus;
+    [SerializeField] Text _textAwardKill, _textTimeBonus, _textAwardAds, _textAward;
+    int _secondsAward; // every second of game decriese timeBonus (see getAward method)
+    int _awardKill, _awardTimeBonus, _awardAdvertisment;
+    int _award => _awardKill + _awardTimeBonus + _awardAdvertisment;
 
     float _startLevelTime;
 
     void Start()
     {
         var holder = EventHolder.Singleton;
-        holder.AwardForKill += addAward;
+        holder.AwardForKill += addKillAward;
         holder.EndGame += getAward;
+        holder.PlanetLoaded += setSecondsAward;
 
         _startLevelTime = Time.time;
     }
 
-    public void AdvertisementAward()
+    void setSecondsAward(Planet planet) => _secondsAward = planet.SecondsAward;
+
+    public void GiveAdvertisementAward()
     {
-        Settings.Singleton.Purchases.Cash += _awardKill;
-        showAward(true); // TODO
+        _awardAdvertisment = _awardKill + _awardTimeBonus;
+        Settings.Singleton.Purchases.Cash += _awardAdvertisment;
+        showAward();
     }
 
-    void addAward(int value)
+    void addKillAward(int value)
     {
         if (value <= 0) Debug.LogError("award add value <= 0");
-
         _awardKill += value;
     }
 
@@ -35,6 +39,7 @@ public class Award : MonoBehaviour
     {
         var sets = Settings.Singleton;
 
+        // time bonus
         int gameTime = (int)(Time.time - _startLevelTime);
         int timeBonus = _secondsAward - gameTime;
         if (timeBonus > 0) _awardTimeBonus = timeBonus;
@@ -42,14 +47,14 @@ public class Award : MonoBehaviour
         if (!victory) _awardKill = (int)(_awardKill * sets.GameBalance.DefeatAwardCoeficient);
         sets.Purchases.Cash += _awardKill;
         
-        showAward(victory);
+        showAward();
     }
 
-    void showAward(bool victory)
+    void showAward()
     {
         _textAwardKill.text = "+ " + _awardKill;
         _textTimeBonus.text = "+ " + _awardTimeBonus;
-        if (victory) _textDefeatCoef.text = "победа!";
-        else _textDefeatCoef.text = "/2 - поражение";
+        _textAwardAds.text = "+ " + _awardAdvertisment;
+        _textAward.text = "+ " + _award;
     }
 }

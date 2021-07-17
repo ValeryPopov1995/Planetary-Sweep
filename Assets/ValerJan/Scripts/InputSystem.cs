@@ -19,15 +19,6 @@ public class InputSystem : MonoBehaviour
         if (EventHolder.Singleton != null) EventHolder.Singleton.EndGame += hideInput;
     }
 
-    void Update() // TODO delete
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Debug.Log("test init victory");
-            EventHolder.Singleton.EndGame?.Invoke(true);
-        }
-    }
-
     public void ExitToMenu()
     {
         EventHolder.Singleton.PauseGame?.Invoke(false);
@@ -43,6 +34,7 @@ public class InputSystem : MonoBehaviour
 
     void hideInput(bool victory)
     {
+        MoveStick.gameObject.SetActive(false); // TODO check work
         MoveStick.enabled = false;
         EyeTrigger.enabled = false;
     }
