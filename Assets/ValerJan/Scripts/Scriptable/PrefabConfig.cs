@@ -7,6 +7,6 @@ using System;
 	public class PrefabConfig : ScriptableObject
 	{
 		public GameObject Ruins, Boom,
-		AutoriflePrefab;
+		AutoriflePrefab, ShotgunPrefab;
 		public GameObject[] Bonuses;
 	}

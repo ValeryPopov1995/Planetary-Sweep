@@ -59,7 +59,7 @@ public abstract class EnemyBaheviour : MonoBehaviour
     public void TakeDamage(Bullet bullet)
     {
         if (Sets.Blood != null) Instantiate(Sets.Blood, bullet.transform.position, bullet.transform.rotation);
-        _health -= bullet.Sets.Damage;
+        _health -= bullet.Sets.BulletDamage.Value;
         if (_health <= 0) death();
     }
     public void TakeDamage(float damage)

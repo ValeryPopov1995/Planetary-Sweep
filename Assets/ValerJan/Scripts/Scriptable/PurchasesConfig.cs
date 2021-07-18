@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Purchases", menuName = "Scriptable/Purchases", order = 1)]
 public class PurchasesConfig : ScriptableObject
 {
-    public PurchaseConfig[] Purchases;
+    [SerializeField] public PurchaseConfig[] Purchases;
     int _cash;
     public event Action CashChanged;
     
@@ -16,7 +16,7 @@ public class PurchasesConfig : ScriptableObject
         {
             if (value > 0) _cash = value;
             else _cash = 0;
-            CashChanged();
+            CashChanged?.Invoke();
         }
     }
 }

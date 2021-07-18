@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2f8c1cdd493174787ab0e6aa835efa, type: 3}
   m_Name: Game Settings config
   m_EditorClassIdentifier: 
-  VolumeEffects: -42.867386
-  VolumeMusic: -43.71073
-  Sensetivity: 18.819313
-  LoadingPlanet: {fileID: 0}
+  VolumeEffects: -6.8221235
+  VolumeMusic: -6.741891
+  Sensetivity: 11.244169
+  LoadingPlanet: {fileID: 2070827188748647384, guid: 277edb9fc11d8aa4a896a23e968fea40,
+    type: 3}

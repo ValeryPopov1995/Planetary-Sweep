@@ -23,6 +23,6 @@ public class UI_Cash : MonoBehaviour
 
     void showCash()
     {
-        _txt.text = _purchases.Cash.ToString();
+        if (_txt != null) _txt.text = _purchases.Cash.ToString();
     }
 }

@@ -19,5 +19,5 @@ MonoBehaviour:
   AutoFireAngle: 15
   AutoFireRange: 15
   DefeatAwardCoeficient: 0.5
-  BonuseSecondRate: 5
-  BonusRandomAdditive: 5
+  BonuseSecondRate: 10
+  BonusRandomAdditive: 10

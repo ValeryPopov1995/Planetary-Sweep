@@ -11,6 +11,7 @@ public class BonusSpowner : MonoBehaviour
     {
         _balance = Settings.Singleton.GameBalance;
         _bonuses = Settings.Singleton.Prefabs.Bonuses;
+        StartCoroutine(startSpown());
     }
 
     IEnumerator startSpown()
@@ -22,7 +23,7 @@ public class BonusSpowner : MonoBehaviour
 
             Vector3 dropPos = Random.insideUnitSphere * _altitude;
             Instantiate(
-                _bonuses[Random.Range(0, _bonuses.Length)],
+                _bonuses[Random.Range(0, _bonuses.Length-1)],
                 dropPos, Quaternion.identity);
             Debug.Log("bonus spowned");
             

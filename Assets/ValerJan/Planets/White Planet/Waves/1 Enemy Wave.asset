@@ -15,7 +15,4 @@ MonoBehaviour:
   SpaceshipCounts:
   - SpaceshipPrefab: {fileID: 723113481504923253, guid: 098524fd54069e44b8cc5600a9bc1270,
       type: 3}
-    Count: 3
-  - SpaceshipPrefab: {fileID: 723113481504923253, guid: a28294d58afab9d48ab4479e9f32e185,
-      type: 3}
-    Count: 3
+    Count: 1

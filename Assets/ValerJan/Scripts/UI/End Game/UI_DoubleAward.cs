@@ -22,9 +22,10 @@ public class UI_DoubleAward : MonoBehaviour
 
     IEnumerator initAds()
     {
-        _button.interactable = false;
+        //_button.interactable = false;
         Advertisement.Initialize("4217177");
-        while(!Advertisement.isInitialized) yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        //while(!Advertisement.isInitialized) yield return new WaitForEndOfFrame();
         _button.interactable = true;
     }
 }

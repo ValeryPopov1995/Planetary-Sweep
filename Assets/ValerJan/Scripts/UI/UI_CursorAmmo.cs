@@ -14,10 +14,10 @@ public class UI_CursorAmmo : MonoBehaviour
         for (int i = 0; i < (int)_purchaseAmmo.Value; i++)
         {
             var e = Instantiate(_elementPrefab, transform);
-            e.SetActive(true);
             elements.Add(e);
         }
         _elements = elements.ToArray();
+        _elementPrefab.SetActive(false);
     }
 
     public void SetValue(int value)

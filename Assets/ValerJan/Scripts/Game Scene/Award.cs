@@ -45,7 +45,7 @@ public class Award : MonoBehaviour
         if (timeBonus > 0) _awardTimeBonus = timeBonus;
 
         if (!victory) _awardKill = (int)(_awardKill * sets.GameBalance.DefeatAwardCoeficient);
-        sets.Purchases.Cash += _awardKill;
+        sets.Purchases.Cash += _awardKill + _awardTimeBonus;
         
         showAward();
     }

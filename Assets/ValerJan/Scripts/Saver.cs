@@ -11,7 +11,7 @@ public class Saver : MonoBehaviour
     void Start()
     {
         _gameSettings = Settings.Singleton.GameSettings;
-        if (PlayerPrefs.HasKey("purchases")) loadFromFile();
+        if (PlayerPrefs.HasKey("purchases") && PlayerPrefs.HasKey("settings")) loadFromFile();
     }
     
     public void SaveScriptableSettings() // from ui to scriptable
@@ -48,8 +48,11 @@ public class Saver : MonoBehaviour
     public void loadFromFile() // from player prefs to scriptable
     {
         string purs = PlayerPrefs.GetString("purchases");
+        //Settings.Singleton.Purchases = JsonUtility.FromJson<PurchasesConfig>(purs);
         JsonUtility.FromJsonOverwrite(purs, Settings.Singleton.Purchases);
+
         string sets = PlayerPrefs.GetString("settings");
+        //Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);
         JsonUtility.FromJsonOverwrite(sets, Settings.Singleton.GameSettings);
 
         Debug.Log("load json purs : " + purs);

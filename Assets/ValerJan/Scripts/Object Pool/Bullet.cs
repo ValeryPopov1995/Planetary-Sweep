@@ -10,7 +10,17 @@ public class Bullet : PoolableObject
 
     void OnEnable()
     {
+        Debug.Log(gameObject.name + " spowned"); // TODO delete
+        
         var rb = GetComponent<Rigidbody>();
+
+        var r = transform.rotation;
+        r = new Quaternion(
+            r.x + Random.Range(0, Sets.AccurecyAngle),
+            r.y + Random.Range(0, Sets.AccurecyAngle),
+            r.z + Random.Range(0, Sets.AccurecyAngle),
+            r.w);
+
         rb.velocity = Vector3.zero;
         rb.AddForce(Sets.Speed * transform.forward, ForceMode.Impulse);
         StartCoroutine(checkDestroy());
@@ -41,6 +51,6 @@ public class Bullet : PoolableObject
         }
 
         if (_impactPrefab != null) Instantiate(_impactPrefab, transform.position, transform.rotation);
-        Destroy();
+        if (!collision.gameObject.CompareTag("Bullet")) Destroy();
     }
 }

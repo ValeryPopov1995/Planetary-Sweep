@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 516953820582745715}
   - component: {fileID: 2718281846898092708}
   m_Layer: 0
-  m_Name: Trooper Bullet
+  m_Name: Shotgun Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad26f684ef525884bbdc2ced9f98459a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sets: {fileID: 11400000, guid: a4476f947f0d2304b8ebf0b034e7d465, type: 2}
+  Sets: {fileID: 11400000, guid: 550896e86a22f924b834dd8292a85ad9, type: 2}
   _impactPrefab: {fileID: 0}
 --- !u!1 &7510306087127636706
 GameObject:

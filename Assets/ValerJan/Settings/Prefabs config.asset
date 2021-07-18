@@ -16,6 +16,8 @@ MonoBehaviour:
   Boom: {fileID: 9112319451488956408, guid: bab1a909db7b78c4aa59606c181a01b1, type: 3}
   AutoriflePrefab: {fileID: 3625737723354933935, guid: 3d5db4b5d3d9858468867eefc767f1de,
     type: 3}
+  ShotgunPrefab: {fileID: 3625737723354933935, guid: d38eaab11e3d2fe49a7128778b928d2e,
+    type: 3}
   Bonuses:
   - {fileID: 7379815909602824653, guid: 7b3891f693b8c794aa7f92b1067d8903, type: 3}
   - {fileID: 7379815909602824653, guid: 08574535a3110a2458e3edf0ede076af, type: 3}

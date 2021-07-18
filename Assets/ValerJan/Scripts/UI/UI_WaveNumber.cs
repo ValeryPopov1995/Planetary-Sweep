@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +13,6 @@ public class UI_WaveNumber : MonoBehaviour
         eh.PlanetLoaded += initiateAfterPlanet;        
         eh.CompleteWave += showCurrentWave;
         eh.EndGame += endGame;
-
     }
 
     void showCurrentWave()

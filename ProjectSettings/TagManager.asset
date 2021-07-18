@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Planetary Object
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
