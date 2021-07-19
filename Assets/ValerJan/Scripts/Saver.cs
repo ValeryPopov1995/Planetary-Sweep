@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System.IO;
 
 public class Saver : MonoBehaviour
 {
     [SerializeField] AudioMixer _mixer;
     [SerializeField] Slider _effects, _music, _sensetivity;
     GameSettingsConfig _gameSettings;
+    string _path;
 
     void Start()
     {
+        _path = Application.persistentDataPath + "/data.ps";
         _gameSettings = Settings.Singleton.GameSettings;
-        if (PlayerPrefs.HasKey("purchases") && PlayerPrefs.HasKey("settings")) loadFromFile();
+        loadFromFile();
     }
     
     public void SaveScriptableSettings() // from ui to scriptable
@@ -37,25 +40,36 @@ public class Saver : MonoBehaviour
     public void SaveToFile() // from scriptable to player prefs
     {
         string purs = JsonUtility.ToJson(Settings.Singleton.Purchases);
-        PlayerPrefs.SetString("purchases", purs);
-        string sets = JsonUtility.ToJson(Settings.Singleton.GameSettings);
-        PlayerPrefs.SetString("settings", sets);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetString("purchases", purs);
 
-        Debug.Log("saved json purs : " + purs);
+        string sets = JsonUtility.ToJson(Settings.Singleton.GameSettings);
+        //PlayerPrefs.SetString("settings", sets);
+        //PlayerPrefs.Save();
+
+        File.WriteAllLines(_path, new string[] {purs, sets} );
+
+        Debug.Log("save path : " + _path);
     }
 
     public void loadFromFile() // from player prefs to scriptable
     {
-        string purs = PlayerPrefs.GetString("purchases");
+        //if (!PlayerPrefs.HasKey("purchases") || !PlayerPrefs.HasKey("settings")) return;
+        if (!File.Exists(_path))
+        {
+            ResetProgress();
+            return;
+        }
+
+        var lines = File.ReadAllLines(_path);
+        //string purs = PlayerPrefs.GetString("purchases");
         //Settings.Singleton.Purchases = JsonUtility.FromJson<PurchasesConfig>(purs);
-        JsonUtility.FromJsonOverwrite(purs, Settings.Singleton.Purchases);
+        JsonUtility.FromJsonOverwrite(lines[0], Settings.Singleton.Purchases);
 
-        string sets = PlayerPrefs.GetString("settings");
+        //string sets = PlayerPrefs.GetString("settings");
         //Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);
-        JsonUtility.FromJsonOverwrite(sets, Settings.Singleton.GameSettings);
+        JsonUtility.FromJsonOverwrite(lines[1], Settings.Singleton.GameSettings);
 
-        Debug.Log("load json purs : " + purs);
+        Debug.Log("load json purs : " + lines[0]);
         loadScriptableSettings();
     }
 

@@ -868,6 +868,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece6d1ff64aab8d4a88b11bf4253a7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &129131482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129131483}
+  m_Layer: 0
+  m_Name: ===================
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &129131483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129131482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &173688750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1779,8 +1809,8 @@ MonoBehaviour:
   _cursorAmmo: {fileID: 1472807385}
   _spownPoint: {fileID: 541267344}
   _animator: {fileID: 2029985035}
-  _bulletCount: 5
-  _delay: 1
+  _bulletCount: 3
+  _delay: 0.5
 --- !u!1 &297544130
 GameObject:
   m_ObjectHideFlags: 0

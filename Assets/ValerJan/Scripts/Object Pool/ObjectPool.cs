@@ -47,6 +47,7 @@ public class ObjectPool : MonoBehaviour
 		_pool.Add(poolableObject);
 	}
 	
+	// TODO delete
 	public IEnumerator ClearPool()
 	{
 		foreach( var e in _pool)

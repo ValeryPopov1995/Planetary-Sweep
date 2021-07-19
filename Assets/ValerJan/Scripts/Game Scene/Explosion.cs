@@ -17,7 +17,6 @@ public class Explosion : MonoBehaviour
     private void explose()
     {
         var enemies = Physics.OverlapSphere(transform.position, _purchaseRadius.Value, _layerMask, QueryTriggerInteraction.Ignore);
-        Debug.Log(enemies.Length);
         if (enemies.Length == 0) return;
 
         foreach(var e in enemies)

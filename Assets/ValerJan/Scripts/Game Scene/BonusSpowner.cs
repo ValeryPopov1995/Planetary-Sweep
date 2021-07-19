@@ -25,7 +25,7 @@ public class BonusSpowner : MonoBehaviour
             Instantiate(
                 _bonuses[Random.Range(0, _bonuses.Length-1)],
                 dropPos, Quaternion.identity);
-            Debug.Log("bonus spowned");
+            //Debug.Log("bonus spowned");
             
             yield return new WaitForSeconds(
                 _balance.BonuseSecondRate +

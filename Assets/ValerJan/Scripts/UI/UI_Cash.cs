@@ -13,7 +13,7 @@ public class UI_Cash : MonoBehaviour
         _purchases = Settings.Singleton.Purchases;
         showCash();
 
-        Settings.Singleton.Purchases.CashChanged += showCash;
+        if (_purchases != null) _purchases.CashChanged += showCash;
     }
 
     void OnEnable()
@@ -23,6 +23,6 @@ public class UI_Cash : MonoBehaviour
 
     void showCash()
     {
-        if (_txt != null) _txt.text = _purchases.Cash.ToString();
+        if (_txt != null && _purchases != null) _txt.text = _purchases.Cash.ToString();
     }
 }

@@ -17,7 +17,6 @@ public class UI_PurchaseButton : MonoBehaviour
     void Awake()
     {
         if (_purchase.ParentPurchase != null) _purchase.ParentPurchase.UpdatePurchaseLevel += updateButton;
-        _elementPrefab.gameObject.SetActive(false);
 
         _button = GetComponent<Button>();
 
@@ -29,7 +28,7 @@ public class UI_PurchaseButton : MonoBehaviour
             elements[i] = e.GetComponent<Image>();
         }
 
-        updateButton();
+        _elementPrefab.gameObject.SetActive(false);
     }
 
     void OnEnable() => updateButton();
@@ -55,13 +54,17 @@ public class UI_PurchaseButton : MonoBehaviour
         for (int i = 0; i < elements.Length; i++)
         {
             if (i < _purchase.Level)
-                elements[i].color = _onColor;
+            {
+                if (elements[i] != null) elements[i].color = _onColor;
+            }
             else
-                elements[i].color = _offColor;
+            {
+                if (elements[i] != null) elements[i].color = _offColor;
+            }
         }
 
-        _costText.text = _purchase.Cost.ToString();
-        _costText.gameObject.SetActive(interactable);
-        _button.interactable = interactable;
+        if (_costText != null) _costText.gameObject.SetActive(interactable);
+        if (_costText != null) _costText.text = _purchase.Cost.ToString();
+        if (_button != null) _button.interactable = interactable;
     }
 }

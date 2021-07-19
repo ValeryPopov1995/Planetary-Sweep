@@ -10,7 +10,7 @@ public class Bullet : PoolableObject
 
     void OnEnable()
     {
-        Debug.Log(gameObject.name + " spowned"); // TODO delete
+        //Debug.Log(gameObject.name + " spowned");
         
         var rb = GetComponent<Rigidbody>();
 
