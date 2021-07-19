@@ -49,6 +49,7 @@ public class Saver : MonoBehaviour
         string sets = JsonUtility.ToJson(Settings.Singleton.GameSettings);
         
         //File.WriteAllLines(_path, new string[] {levels, sets} );
+        PlayerPrefs.SetInt("cash", Settings.Singleton.Purchases.Cash);
         PlayerPrefs.SetString("lvls", levels);
         PlayerPrefs.SetString("sets", sets);
 
@@ -57,27 +58,14 @@ public class Saver : MonoBehaviour
 
     public void loadFromFile() // from player prefs to scriptable
     {
-        // if (!File.Exists(_path))
-        // {
-        //     ResetProgress();
-        //     return;
-        // }
-        // var lines = File.ReadAllLines(_path);
-
-        if (!PlayerPrefs.HasKey("lvls") || !PlayerPrefs.HasKey("sets"))
-        {
-            ResetProgress();
-            return;
-        }
-        
         try
         {
             string lvls = PlayerPrefs.GetString("lvls");
             string sets = PlayerPrefs.GetString("sets");
 
+            Settings.Singleton.Purchases.Cash = PlayerPrefs.GetInt("cash");
             string[] levels = lvls.Split(' ');
             for (int i = 0; i < Settings.Singleton.Purchases.Purchases.Length; i++) Settings.Singleton.Purchases.Purchases[i].Level = Convert.ToInt32(levels[i]);
-
             JsonUtility.FromJsonOverwrite(sets, Settings.Singleton.GameSettings);
 
             loadScriptableSettings();

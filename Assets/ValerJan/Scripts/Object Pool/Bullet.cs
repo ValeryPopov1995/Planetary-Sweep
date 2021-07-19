@@ -21,7 +21,7 @@ public class Bullet : PoolableObject
 
     void OnEnable()
     {
-        //Debug.Log("bullet enabled"); // enabled before instantiated !
+        //Debug.Log("bullet enabled"); // enabled before instantiated from pool !
         StartCoroutine(initRandom());
         StartCoroutine(checkDestroy());
     }
@@ -32,18 +32,12 @@ public class Bullet : PoolableObject
     {
         float[] angles = new float[3];
         for (int i = 0; i < 3; i++)
-        {
             angles[i] = Random.Range(-Sets.AccurecyAngle, Sets.AccurecyAngle);
-            //Debug.Log(angles[i]);
-        }
 
         yield return new WaitForEndOfFrame();
         transform.Rotate(angles[0], angles[1], angles[2]);
 
         var rb = GetComponent<Rigidbody>();
-        //rb.velocity = Vector3.zero;
-        //rb.AddForce(Sets.Speed * transform.forward, ForceMode.Impulse);
-        //Debug.Log("bullet rotated");
     }
 
     IEnumerator checkDestroy()
@@ -54,21 +48,22 @@ public class Bullet : PoolableObject
 
     void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("bullet impacted in" + collision.gameObject.name);
+        GameObject target = collision.gameObject;
+        var holder = EventHolder.Singleton;
         if (Sets.EnemyBullet)
         {
-            if (collision.gameObject.CompareTag("Player"))
-                EventHolder.Singleton.PlayerChangeHealth?.Invoke(-Sets.Damage);
-            else if (collision.gameObject.CompareTag("Planetary Object"))
-                EventHolder.Singleton.PlanetChangeHealth?.Invoke(-Sets.Damage);
+            if (target.CompareTag("Player"))
+                holder.PlayerChangeHealth?.Invoke(-Sets.Damage);
+            else if (target.CompareTag("Planetary Object"))
+                holder.PlanetChangeHealth?.Invoke(-Sets.Damage);
         }
         else
         {
-            if (collision.gameObject.CompareTag("Enemy")) collision.gameObject.GetComponentInChildren<EnemyBaheviour>().TakeDamage(this);
+            if (target.CompareTag("Enemy")) target.GetComponentInChildren<EnemyBaheviour>().TakeDamage(this);
         }
 
         if (_impactPrefab != null) Instantiate(_impactPrefab, transform.position, transform.rotation);
-        if (!collision.gameObject.CompareTag("Bullet")) Destroy();
+        if (!target.CompareTag("Bullet")) Destroy();
     }
 
 }
