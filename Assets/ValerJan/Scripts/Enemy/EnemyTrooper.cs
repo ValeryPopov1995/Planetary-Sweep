@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// поворачивается в сторону игрока, учитывая ось по направлению к планете (стоит вертикально к планете)

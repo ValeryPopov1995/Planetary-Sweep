@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 public class Saver : MonoBehaviour
 {
@@ -39,38 +40,52 @@ public class Saver : MonoBehaviour
 
     public void SaveToFile() // from scriptable to player prefs
     {
-        string purs = JsonUtility.ToJson(Settings.Singleton.Purchases);
-        //PlayerPrefs.SetString("purchases", purs);
+        string levels = "";
+        for (int i = 0; i < Settings.Singleton.Purchases.Purchases.Length; i++)
+            levels += Settings.Singleton.Purchases.Purchases[i].Level + " ";
+        Debug.Log("levels are saved :" + levels);
+        levels.Trim();
 
         string sets = JsonUtility.ToJson(Settings.Singleton.GameSettings);
-        //PlayerPrefs.SetString("settings", sets);
-        //PlayerPrefs.Save();
-
-        File.WriteAllLines(_path, new string[] {purs, sets} );
+        
+        //File.WriteAllLines(_path, new string[] {levels, sets} );
+        PlayerPrefs.SetString("lvls", levels);
+        PlayerPrefs.SetString("sets", sets);
 
         Debug.Log("save path : " + _path);
     }
 
     public void loadFromFile() // from player prefs to scriptable
     {
-        //if (!PlayerPrefs.HasKey("purchases") || !PlayerPrefs.HasKey("settings")) return;
-        if (!File.Exists(_path))
+        // if (!File.Exists(_path))
+        // {
+        //     ResetProgress();
+        //     return;
+        // }
+        // var lines = File.ReadAllLines(_path);
+
+        if (!PlayerPrefs.HasKey("lvls") || !PlayerPrefs.HasKey("sets"))
         {
             ResetProgress();
             return;
         }
+        
+        try
+        {
+            string lvls = PlayerPrefs.GetString("lvls");
+            string sets = PlayerPrefs.GetString("sets");
 
-        var lines = File.ReadAllLines(_path);
-        //string purs = PlayerPrefs.GetString("purchases");
-        //Settings.Singleton.Purchases = JsonUtility.FromJson<PurchasesConfig>(purs);
-        JsonUtility.FromJsonOverwrite(lines[0], Settings.Singleton.Purchases);
+            string[] levels = lvls.Split(' ');
+            for (int i = 0; i < Settings.Singleton.Purchases.Purchases.Length; i++) Settings.Singleton.Purchases.Purchases[i].Level = Convert.ToInt32(levels[i]);
 
-        //string sets = PlayerPrefs.GetString("settings");
-        //Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);
-        JsonUtility.FromJsonOverwrite(lines[1], Settings.Singleton.GameSettings);
+            JsonUtility.FromJsonOverwrite(sets, Settings.Singleton.GameSettings);
 
-        Debug.Log("load json purs : " + lines[0]);
-        loadScriptableSettings();
+            loadScriptableSettings();
+        }
+        catch
+        {
+            ResetProgress();
+        }
     }
 
     public void ResetProgress()
@@ -91,3 +106,23 @@ public class Saver : MonoBehaviour
         _mixer.SetFloat("music",      _gameSettings.VolumeMusic);
     }
 }
+
+/* not work
+    string purs = JsonUtility.ToJson(Settings.Singleton.Purchases);
+    PlayerPrefs.SetString("purchases", purs);
+
+    //PlayerPrefs.SetString("settings", sets);
+    //PlayerPrefs.Save();
+
+    //if (!PlayerPrefs.HasKey("purchases") || !PlayerPrefs.HasKey("settings")) return;
+
+    
+    //string purs = PlayerPrefs.GetString("purchases");
+    //Settings.Singleton.Purchases = JsonUtility.FromJson<PurchasesConfig>(purs);
+    //JsonUtility.FromJsonOverwrite(lines[0], Settings.Singleton.Purchases);
+
+    //string sets = PlayerPrefs.GetString("settings");
+    //Settings.Singleton.GameSettings = JsonUtility.FromJson<GameSettingsConfig>(sets);
+
+    //Debug.Log("lvls.lemgth = " + lvls.Length + ", purs.length = " + Settings.Singleton.Purchases.Purchases.Length); // 16 vs 15
+*/

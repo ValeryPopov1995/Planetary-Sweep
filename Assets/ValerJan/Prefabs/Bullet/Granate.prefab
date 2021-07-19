@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05d2de55166c454c9828af6fdb949d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Impulse: 14
+  _Impulse: 9
   _timer: 2
   _randomTorque: 15
   _explosionPrefab: {fileID: 3117749103099483189, guid: adfabbc9c4dda4b409b091e34b1275cc,

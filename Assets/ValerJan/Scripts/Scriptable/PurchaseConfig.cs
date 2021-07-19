@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
@@ -26,7 +24,11 @@ public class PurchaseConfig : ScriptableObject
         }
     }
 
-    public int Level { get { return currentLevel;} }
+    public int Level
+    {
+        get { return currentLevel;}
+        set { currentLevel = value;}
+    }
 
     public void ResetLevel()
     {

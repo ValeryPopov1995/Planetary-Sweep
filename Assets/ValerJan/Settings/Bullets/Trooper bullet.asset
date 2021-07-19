@@ -17,4 +17,4 @@ MonoBehaviour:
   Speed: 10
   Damage: 1
   TimerToDestroy: 2
-  AccurecyAngle: 1
+  AccurecyAngle: 4

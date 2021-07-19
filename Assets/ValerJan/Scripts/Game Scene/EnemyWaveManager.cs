@@ -43,6 +43,7 @@ public class EnemyWaveManager : MonoBehaviour
 		void changeCount(int count)
 		{
 			_enemyCount += count;
+			Debug.Log("enemies left : " + _enemyCount);
 
 			if (_canCopmleteWave && _enemyCount <= 0)
 			{
@@ -76,9 +77,10 @@ public class EnemyWaveManager : MonoBehaviour
 				Transform spownPos;
 				if (getFreeSpownPoint(out spownPos))
 				{
-					Instantiate(spownList[0], spownPos.position, spownPos.rotation);
-					Debug.Log(spownList[0].name + " spowned");
-					spownList.RemoveAt(0);
+					int r = Random.Range(0, spownList.Count);
+					Instantiate(spownList[r], spownPos.position, spownPos.rotation);
+					Debug.Log(spownList[r].name + " spowned");
+					spownList.RemoveAt(r);
 				}
 				yield return new WaitForSeconds(Settings.Singleton.GameBalance.SpaceshipSpownTime);
 			}

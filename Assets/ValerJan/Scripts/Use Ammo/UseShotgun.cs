@@ -22,8 +22,9 @@ public class UseShotgun : UseAmmo
 
         for (int i = 0; i < _bulletCount; i++)
         {
-            yield return new WaitForEndOfFrame();
+            //yield return new WaitForEndOfFrame();
             ObjectPool.Singleton.InstantiateFromPool(Settings.Singleton.Prefabs.ShotgunPrefab, _spownPoint.position, _spownPoint.rotation);
+            //Debug.Log("shotgun bullet instantiated");
         }
     }
 }
