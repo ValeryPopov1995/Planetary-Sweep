@@ -15,5 +15,5 @@ MonoBehaviour:
   VolumeEffects: 0
   VolumeMusic: 0
   Sensetivity: 11.264229
-  LoadingPlanet: {fileID: 6268441024062588250, guid: f2b36b1394b8ac14caefb25dd55466cf,
+  LoadingPlanet: {fileID: 440517620453883893, guid: 277edb9fc11d8aa4a896a23e968fea40,
     type: 3}

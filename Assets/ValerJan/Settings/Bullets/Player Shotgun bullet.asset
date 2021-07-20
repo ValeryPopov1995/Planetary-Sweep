@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletDamage: {fileID: 11400000, guid: ea0938d2c0010f3449aac0552c3b9410, type: 2}
   EnemyBullet: 0
-  Speed: 20
+  Speed: 40
   Damage: 10
   TimerToDestroy: 2
   AccurecyAngle: 5

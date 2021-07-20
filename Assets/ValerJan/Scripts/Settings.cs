@@ -10,6 +10,8 @@ public class Settings : MonoBehaviour
     public PrefabConfig Prefabs;
     public static Settings Singleton;
 
+    public static GameObject LoadingPlanet;
+
     void Awake()
     {
         if (Singleton == null) Singleton = this;

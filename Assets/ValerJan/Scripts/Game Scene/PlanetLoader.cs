@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlanetLoader : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
-        var p = Settings.Singleton.GameSettings.LoadingPlanet;
+        var p = Settings.LoadingPlanet;
         Instantiate(p, Vector3.zero, Quaternion.identity);
     }
 }

@@ -8,6 +8,4 @@ public class GameSettingsConfig : ScriptableObject
     public float VolumeEffects;
     public float VolumeMusic;
     public float Sensetivity;
-
-    public GameObject LoadingPlanet;
 }

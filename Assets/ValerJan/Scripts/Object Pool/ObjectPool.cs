@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -15,12 +14,12 @@ public class ObjectPool : MonoBehaviour
 		else Destroy(this);
 	}
 	
-	public void InstantiateFromPool(GameObject prefab, Vector3 position, Quaternion rotation)
+	public void InstantiateFromPool(GameObject poolablePrefab, Vector3 position, Quaternion rotation)
 	{
 		bool founded = false;
 		foreach (var e in _pool)
 		{
-			if (e.name == prefab.name + "(Clone)")
+			if (e.name == poolablePrefab.name + "(Clone)")
 			{
 				founded = true;
 				
@@ -36,7 +35,7 @@ public class ObjectPool : MonoBehaviour
 		
 		if (!founded)
 		{
-			var o = Instantiate(prefab, position, rotation);
+			var o = Instantiate(poolablePrefab, position, rotation);
             o.transform.parent = transform;
 			//Debug.Log("в ObjectPool отсутствует свободный " + prefab + ", создан новый");
 		}

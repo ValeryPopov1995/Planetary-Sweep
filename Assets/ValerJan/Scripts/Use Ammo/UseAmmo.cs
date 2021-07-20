@@ -3,13 +3,17 @@ using UnityEngine;
 public abstract class UseAmmo : MonoBehaviour
 {
     [SerializeField] PurchaseConfig _purchaseAmmo;
+    [Tooltip("not nessesary")]
+    [SerializeField] PurchaseConfig _purchaseCallback;
     [Tooltip("if != null this script use it")]
     [SerializeField] UI_CursorAmmo _cursorAmmo;
+    float _lastUseTime;
 
     int _currentAmmo;
 
     void Start()
     {
+        if (_purchaseCallback != null) _lastUseTime = Time.time;
         EventHolder.Singleton.AddBonusAmmo += addAmmo;
 
         if (_purchaseAmmo.ParentPurchase != null && _purchaseAmmo.ParentPurchase.Level == 0)
@@ -23,8 +27,10 @@ public abstract class UseAmmo : MonoBehaviour
     public void TryUse()
     {
         if (_currentAmmo == 0) return;
+        if (_purchaseCallback != null && _lastUseTime + _purchaseCallback.Value > Time.time) return;
 
         _currentAmmo--;
+        if (_purchaseCallback != null) _lastUseTime = Time.time;
         if (_cursorAmmo != null) _cursorAmmo.SetValue(_currentAmmo);
         Use();
     }

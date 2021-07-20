@@ -6,11 +6,18 @@ public class UseShotgun : UseAmmo
 {
     [SerializeField] Transform _spownPoint;
     [SerializeField] Animator _animator;
+    [SerializeField] AudioSource _source;
     [SerializeField] int _bulletCount;
     [SerializeField] float _delay;
 
     protected override void Use()
     {
+        if (_source != null)
+        {
+            if (_source.isPlaying) _source.Stop();
+            _source.Play();
+        }
+        
         EventHolder.Singleton.UseShotgun?.Invoke();
         _animator.SetTrigger("shoot");
         StartCoroutine(spown());

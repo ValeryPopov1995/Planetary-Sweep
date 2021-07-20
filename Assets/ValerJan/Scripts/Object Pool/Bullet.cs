@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -8,6 +7,7 @@ public class Bullet : PoolableObject
     public BulletConfig Sets;
     [SerializeField] GameObject _impactPrefab;
     Rigidbody _rigidbody;
+    Vector3 _forward;
 
     void Start()
     {
@@ -16,29 +16,21 @@ public class Bullet : PoolableObject
 
     void Update()
     {
-        _rigidbody.MovePosition(transform.position + transform.forward * Sets.Speed * Time.deltaTime);
+        _rigidbody.MovePosition(transform.position + _forward * Sets.Speed * Time.deltaTime);
     }
 
     void OnEnable()
     {
-        //Debug.Log("bullet enabled"); // enabled before instantiated from pool !
-        StartCoroutine(initRandom());
+        transform.Rotate(
+            Random.Range(0, Sets.AccurecyAngle),
+            Random.Range(0, Sets.AccurecyAngle),
+            Random.Range(0, Sets.AccurecyAngle));
+        _forward = transform.forward;
+
         StartCoroutine(checkDestroy());
     }
 
     void OnDisable() => StopAllCoroutines();
-
-    IEnumerator initRandom()
-    {
-        float[] angles = new float[3];
-        for (int i = 0; i < 3; i++)
-            angles[i] = Random.Range(-Sets.AccurecyAngle, Sets.AccurecyAngle);
-
-        yield return new WaitForEndOfFrame();
-        transform.Rotate(angles[0], angles[1], angles[2]);
-
-        var rb = GetComponent<Rigidbody>();
-    }
 
     IEnumerator checkDestroy()
     {
@@ -46,9 +38,12 @@ public class Bullet : PoolableObject
         Destroy();
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        GameObject target = collision.gameObject;
+        if (other.isTrigger) return; // it is very important small detail, syka
+        GameObject target = other.gameObject;
+        Debug.Log(gameObject.name + " triggered with " + target.name);
+
         var holder = EventHolder.Singleton;
         if (Sets.EnemyBullet)
         {
@@ -65,5 +60,4 @@ public class Bullet : PoolableObject
         if (_impactPrefab != null) Instantiate(_impactPrefab, transform.position, transform.rotation);
         if (!target.CompareTag("Bullet")) Destroy();
     }
-
 }

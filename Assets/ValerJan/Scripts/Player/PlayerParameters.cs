@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class PlayerParameters : MonoBehaviour
 {
+    public float Health { get; private set; }
     [SerializeField] PurchaseConfig _playerHealth;
-    float _health;
+    bool _dead => Health > 0;
 
     void Start()
     {
         EventHolder.Singleton.PlanetLoaded += setStartPosition;
-        _health = _playerHealth.Value;
+        Health = _playerHealth.Value;
         EventHolder.Singleton.PlayerChangeHealth += changeHealth;
     }
 
     void changeHealth(float value)
     {
-        _health += value;
-        if (_health <= 0) die();
-        else if (_health > _playerHealth.Value) _health = _playerHealth.Value;
+        Health += value;
+        if (Health <= 0) die();
+        else if (Health > _playerHealth.Value) Health = _playerHealth.Value;
     }
 
     void die()

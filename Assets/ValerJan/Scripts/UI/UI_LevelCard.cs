@@ -30,7 +30,7 @@ public class UI_LevelCard : MonoBehaviour
 
     public void LoadPlanet()
     {
-        Settings.Singleton.GameSettings.LoadingPlanet = _planetPrefab;
+        Settings.LoadingPlanet = _planetPrefab;
         SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
     }
 }
