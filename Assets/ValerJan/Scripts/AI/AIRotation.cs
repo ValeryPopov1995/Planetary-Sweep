@@ -14,6 +14,9 @@ public class AIRotation : AIScaning
 
         Vector3 toTarget = (Scaner.Target.position - transform.position).normalized;
         var look = Quaternion.LookRotation(toTarget, transform.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, look, _speed * Time.deltaTime);
+        var toward = Quaternion.RotateTowards(transform.rotation, look, _speed * Time.deltaTime);
+        toward.x = transform.rotation.x;
+        toward.z = transform.rotation.z;
+        transform.rotation = toward;
     }
 }

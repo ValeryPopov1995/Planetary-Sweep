@@ -3,9 +3,13 @@ guid: 58fbed77545189048b97a2043cbb76f7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Scaner: {instanceID: 0}
+  - _bulletPrefab: {fileID: 3625737723354933935, guid: 6d0363619f1cca54db3bb50eff72e60f,
+      type: 3}
+  - _spownPoint: {instanceID: 0}
   executionOrder: 0
-  icon: {instanceID: 0}
+  icon: {fileID: 2800000, guid: 358cd539a63ec5f4eb3e1a4ce895413f, type: 3}
   userData: 
   assetBundleName: 
   assetBundleVariant: 

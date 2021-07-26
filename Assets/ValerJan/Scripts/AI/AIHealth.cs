@@ -7,6 +7,7 @@ public class AIHealth : MonoBehaviour
     void Start()
     {
         tag = "Enemy";
+        gameObject.layer = 3; // Enemy, for granate explosion
     }
 
     public void TakeDamage(float damage)

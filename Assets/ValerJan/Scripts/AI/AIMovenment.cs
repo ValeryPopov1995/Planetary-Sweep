@@ -17,7 +17,10 @@ public class AIMovenment : AIScaning
     
     void FixedUpdate()
     {
-        _rigid.velocity = -transform.up * Settings.Singleton.GameBalance.Gravity * Time.fixedDeltaTime;
+        Vector3 gravity = -transform.up * Settings.Singleton.GameBalance.Gravity * Time.fixedDeltaTime;
+        
+        // _rigid.velocity = gravity;
+        _rigid.MovePosition(transform.position + gravity);
 
         if (Scaner.Target == null) return;
         float dis = Vector3.Distance(transform.position, Scaner.Target.position);
@@ -27,6 +30,7 @@ public class AIMovenment : AIScaning
         moveVector = transform.forward * _speed;
         moveVector *= Time.fixedDeltaTime;
 
-        _rigid.velocity += moveVector;
+        // _rigid.velocity += moveVector;
+        _rigid.MovePosition(transform.position + moveVector);
     }
 }

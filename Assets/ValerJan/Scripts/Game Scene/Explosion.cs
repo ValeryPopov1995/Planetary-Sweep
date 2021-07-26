@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -21,7 +18,7 @@ public class Explosion : MonoBehaviour
 
         foreach(var e in enemies)
         {
-            EnemyBaheviour component = e.gameObject.GetComponentInChildren<EnemyBaheviour>();
+            var component = e.gameObject.GetComponent<AIHealth>();
             if (component == null)
                 Debug.LogError("противник не имеет компонента EnemyBaheviour");
             

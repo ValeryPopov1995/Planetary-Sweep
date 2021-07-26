@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2532330176008573063}
   m_Layer: 3
   m_Name: AI Trooper
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
+  _layer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!54 &9147546710235517261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scaner: {fileID: 1116359855331380619}
-  _speed: 630
+  _speed: 2
   _followDistance: 5
 --- !u!1 &1756078501261956809
 GameObject:

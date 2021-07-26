@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scaner: {fileID: 4608239289002526145}
-  _speed: 20
+  _speed: 40
   _rotateToPlanet: 0
 --- !u!114 &4608239288192887851
 MonoBehaviour:
@@ -434,8 +434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scaner: {fileID: 4608239289002526145}
-  _speed: 10
-  _rotateToPlanet: 0
+  _speed: 30
+  _rotateToPlanet: 1
 --- !u!54 &-9205452040038769568
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -465,5 +465,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scaner: {fileID: 4608239289002526145}
-  _speed: 500
+  _speed: 2
   _followDistance: 5
