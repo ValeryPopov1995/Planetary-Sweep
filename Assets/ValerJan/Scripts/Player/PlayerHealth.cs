@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerParameters : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public float Health { get; private set; }
     [SerializeField] PurchaseConfig _playerHealth;

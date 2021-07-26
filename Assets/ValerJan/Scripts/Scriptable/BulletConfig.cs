@@ -4,7 +4,7 @@ using UnityEngine;
 public class BulletConfig : ScriptableObject
 {
     [Tooltip("if it for player bullets")]
-    public PurchaseConfig BulletDamage;
+    public PurchaseConfig PlayerBulletDamage;
     public bool EnemyBullet = true;
 	public float Speed, Damage, TimerToDestroy, AccurecyAngle;
 }

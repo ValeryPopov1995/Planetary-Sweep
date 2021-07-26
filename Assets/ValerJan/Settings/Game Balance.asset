@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281c8832bf41a3b458e6d8a3add1d353, type: 3}
   m_Name: Game Balance
   m_EditorClassIdentifier: 
-  Gravity: 1000
+  Gravity: 500
   EnemyWaveCullback: 5
   SpaceshipSpownTime: 5
   TimerDestroySpaceships: 5
-  AutoFireAngle: 15
+  AutoFireAngle: 9
   AutoFireRange: 15
   DefeatAwardCoeficient: 0.5
   BonuseSecondRate: 10

@@ -54,7 +54,7 @@ public class Bullet : PoolableObject
         }
         else
         {
-            if (target.CompareTag("Enemy")) target.GetComponentInChildren<EnemyBaheviour>().TakeDamage(this);
+            if (target.CompareTag("Enemy")) target.GetComponentInChildren<AIHealth>().TakeDamage(Sets.Damage);
         }
 
         if (_impactPrefab != null) Instantiate(_impactPrefab, transform.position, transform.rotation);

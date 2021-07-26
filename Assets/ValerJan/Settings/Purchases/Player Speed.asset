@@ -18,5 +18,5 @@ MonoBehaviour:
   defaultLevel: 1
   startCost: 120
   costProgress: 100
-  firstValue: 800
-  addValue: 70
+  firstValue: 600
+  addValue: 50

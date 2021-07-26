@@ -4,7 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class UI_PlayerHealth : MonoBehaviour
 {
-    [SerializeField] PlayerParameters _player;
+    [SerializeField] PlayerHealth _player;
     Text _text;
 
     void Start()
