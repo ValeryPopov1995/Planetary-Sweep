@@ -6,7 +6,7 @@ public class AIScaner : MonoBehaviour
 {
     public enum TargetPriority {player, building}
 
-    [SerializeField] TargetPriority _priority;
+    [SerializeField] TargetPriority _priority = TargetPriority.building;
     [Min(.1f)] [SerializeField] float _radius = 10;
 
     Transform _target;

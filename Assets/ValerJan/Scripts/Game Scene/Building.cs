@@ -31,6 +31,8 @@ public class Building : MonoBehaviour
 			{
 				_halfDamaged = true;
 				Instantiate(_prefabs.Boom, transform.position, transform.rotation);
+				FullBuild.SetActive(false);
+				HalfDamage.SetActive(true);
 			}
 		}
 		

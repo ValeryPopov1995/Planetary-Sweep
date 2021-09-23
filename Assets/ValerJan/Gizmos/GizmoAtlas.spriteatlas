@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GizmoAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 76db95c1b716afe41872a435ff0cde31, type: 3}
+    - {fileID: 2800000, guid: 358cd539a63ec5f4eb3e1a4ce895413f, type: 3}
+    - {fileID: 2800000, guid: 879ca7f191bb97a41a020a7d7a370ac3, type: 3}
+    - {fileID: 2800000, guid: 929944621fe92cb49be72d1e95fb9ce8, type: 3}
+    - {fileID: 2800000, guid: 3d51f3b62b8c18d45b7e7b885c9d16dc, type: 3}
+    totalSpriteSurfaceArea: 1280
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 76db95c1b716afe41872a435ff0cde31, type: 3}
+  - {fileID: 21300000, guid: 879ca7f191bb97a41a020a7d7a370ac3, type: 3}
+  - {fileID: 21300000, guid: 929944621fe92cb49be72d1e95fb9ce8, type: 3}
+  - {fileID: 21300000, guid: 3d51f3b62b8c18d45b7e7b885c9d16dc, type: 3}
+  - {fileID: 21300000, guid: 358cd539a63ec5f4eb3e1a4ce895413f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - AI Scaner
+  - AI Health
+  - AI Movenment
+  - AI Rotation
+  - AI Fire
+  m_RenderDataMap: {}
+  m_Tag: GizmoAtlas
+  m_IsVariant: 0

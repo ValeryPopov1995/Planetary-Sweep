@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8181826803198987594}
   - component: {fileID: 9147546710235517261}
   - component: {fileID: 2532330176008573063}
+  - component: {fileID: -1166382576079103188}
   m_Layer: 3
   m_Name: AI Trooper
   m_TagString: Untagged
@@ -130,9 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
-  _layer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!54 &9147546710235517261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,6 +162,25 @@ MonoBehaviour:
   Scaner: {fileID: 1116359855331380619}
   _speed: 2
   _followDistance: 5
+--- !u!95 &-1166382576079103188
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756078500408635608}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4171960a4c2cf94a81282809957c7fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1756078501261956809
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,8 +341,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd11c73fd3553644fb9cc13e850cf75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _priority: 0
+  _priority: 1
   _radius: 10
+  _controller: {fileID: -1166382576079103188}
+  _animIdle: {fileID: 0}
+  _animMove: {fileID: 0}
+  _animFire: {fileID: 0}
 --- !u!1 &6851012557056705708
 GameObject:
   m_ObjectHideFlags: 0

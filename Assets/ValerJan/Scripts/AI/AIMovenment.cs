@@ -5,6 +5,7 @@ using UnityEngine;
 public class AIMovenment : AIScaning
 {
     [Min(.1f)] [SerializeField] float _speed = 500, _followDistance = 5;
+    [SerializeField] Animator _controller;
 
     Rigidbody _rigid;
 
@@ -18,9 +19,8 @@ public class AIMovenment : AIScaning
     void FixedUpdate()
     {
         Vector3 gravity = -transform.up * Settings.Singleton.GameBalance.Gravity * Time.fixedDeltaTime;
-        
-        // _rigid.velocity = gravity;
         _rigid.MovePosition(transform.position + gravity);
+        if (_controller != null) _controller.SetFloat("speed", 0);
 
         if (Scaner.Target == null) return;
         float dis = Vector3.Distance(transform.position, Scaner.Target.position);
@@ -29,8 +29,7 @@ public class AIMovenment : AIScaning
         Vector3 moveVector = Vector3.zero;
         moveVector = transform.forward * _speed;
         moveVector *= Time.fixedDeltaTime;
-
-        // _rigid.velocity += moveVector;
         _rigid.MovePosition(transform.position + moveVector);
+        if (_controller != null) _controller.SetFloat("speed", 1);
     }
 }

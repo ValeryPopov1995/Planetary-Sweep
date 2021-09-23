@@ -27,12 +27,12 @@ public class Bullet : PoolableObject
             Random.Range(0, Sets.AccurecyAngle));
         _forward = transform.forward;
 
-        StartCoroutine(checkDestroy());
+        StartCoroutine(setDestroy());
     }
 
     void OnDisable() => StopAllCoroutines();
 
-    IEnumerator checkDestroy()
+    IEnumerator setDestroy()
     {
         yield return new WaitForSeconds(Sets.TimerToDestroy);
         Destroy();

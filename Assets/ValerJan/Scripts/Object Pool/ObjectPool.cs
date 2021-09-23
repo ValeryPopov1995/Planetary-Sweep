@@ -16,6 +16,7 @@ public class ObjectPool : MonoBehaviour
 	
 	public void InstantiateFromPool(GameObject poolablePrefab, Vector3 position, Quaternion rotation)
 	{
+		if (!poolablePrefab.TryGetComponent<PoolableObject>(out var ob)) Debug.LogError("instantiating object by ObjectPool is not poolable object");
 		bool founded = false;
 		foreach (var e in _pool)
 		{
